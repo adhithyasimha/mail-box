@@ -1,6 +1,5 @@
-================================================================
-# This our Project on "implementing SMTP server using nodejs"   
-================================================================
+# This our Project on "implementing SMTP server using nodejs" 
+--------------------------------------------------------------  
 ## technogilies used 
 * React
 * NodeJS
