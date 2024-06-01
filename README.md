@@ -6,4 +6,4 @@
 
 ## packages used 
 * nodemailer 
-* GASP (for animations)
+* GSAP (for animations)
