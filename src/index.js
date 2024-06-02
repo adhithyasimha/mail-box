@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import MailerTemplate from './components/mailer-template';
-// import BurgerMenu from './components/buger-menu/index.jsx';
+import MailApp from './components/auth';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    < MailerTemplate/>
+    <MailApp />
   </React.StrictMode>
 );
