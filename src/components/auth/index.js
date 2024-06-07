@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './style.css';
+import { Button } from 'baseui/button';
+import { Input } from 'baseui/input';
 
 const MailerAuth = () => {
     const [smtpHost, setSmtpHost] = useState('');
@@ -27,7 +29,7 @@ const MailerAuth = () => {
                     </label>
                     <input type="email" value={user} onChange={e => setUser(e.target.value)} placeholder="Email" required />
                     <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" required />
-                    <button type="submit">Authenticate</button>
+                    <Button type="submit">Authenticate</Button>
                 </form>
             </div>
         </div>

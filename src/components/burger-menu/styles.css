@@ -1,0 +1,66 @@
+.burgerMenu {
+    width: 170px;
+    height: 70vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.composeSec {
+    width: 100%;
+    margin: 0 0 1rem 0;
+}
+
+.compose-btn {
+    height: 24px;
+    aspect-ratio: 16/9;
+    background-color: var(--black-800);
+    color: var(--white-800);
+
+    border: none;
+    padding: 1.4rem 0.9rem;
+    border-radius: .2rem;
+    width: 95%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.compose-btn p {
+    font-size: 1rem;
+}
+
+.menu-btn {
+    border: none;
+    background-color: #ffffff00;
+    height: 36px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.inbox-btn {
+    background-color: var(--gray-500);
+    border-left: 5px solid var(--black-800);
+}
+
+.menu-btn p {
+    margin: 0 10px;
+}
+
+.menuSec {
+    height: 200px;
+    width: 100%;
+}
+
+.menuSec {
+    display: grid;
+    grid-template-columns: ;
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: px;
+    grid-row-gap: 16px;
+    }

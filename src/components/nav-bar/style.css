@@ -1,0 +1,71 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--black-900);
+
+    font-family: 'uber move', sans-serif, -apple-system, system-ui;
+  }
+  
+  .navbar-center .nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-center .nav-links a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+.search-bar input {
+  border: none;
+  background-color: var(--gray-500);
+  margin-left: 10px;
+}
+
+.search-bar input:focus,
+.search-bar input:active  {
+  outline: none;
+}
+.search-bar input::placeholder {
+  color: var(--black-800);
+}
+
+.search-bar {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    margin-right: 1rem;
+    background-color: var(--gray-500);
+
+    display: flex;
+    align-items: center;  
+    width: 35%;
+    border-radius: 20px;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--black-800);
+}
+
+.profile {
+  height: 5vh;
+  aspect-ratio: 1/1;
+  background-image: url('https://avatars.githubusercontent.com/u/78274108?s=400&u=f9fca24043b05e5ffe652a74c7f9dafd139ce4e3&v=4');
+  background-size: cover;
+  border-radius: 50%;
+
+  border: 2px solid var(--black-900);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 6%;
+}
+
