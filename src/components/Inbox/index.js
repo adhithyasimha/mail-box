@@ -1,10 +1,14 @@
 import React from 'react';
 import './style.css';
+import { Checkbox } from "baseui/checkbox";
+import { StarRating } from "baseui/rating";
 
 const MailInbox = () => {
+  const [checked, setChecked] = React.useState(true);
+  const [value, setValue] = React.useState(0);
   return (
 
-<div className="main-section">
+<div className="main-section" id='Inbox'>
   <div className='function-section'>
     <div className='fun-ch select-all-btn'>
     <svg width="38" height="24" viewBox="0 0 38 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,16 +45,9 @@ const MailInbox = () => {
   <div className='mail-section'>
     <article className='message-01'>
         <div className='mes-ch icons'>
-            <div className='check-box'>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M11.9 2.1V11.9H2.1V2.1H11.9ZM14 0H0V14H14V0Z" fill="#A4A4A4"/>
-</svg>
-            </div>
-            <div className='star'>
-                <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M9.34375 2.37361L11.4129 6.34645L11.6083 6.72146L12.0302 6.74847L16.1883 7.01458L13.1212 9.95896L12.804 10.2635L12.9148 10.689L14.0557 15.0699L9.68555 12.8324L9.34375 12.6574L9.00195 12.8324L4.6318 15.0699L5.77267 10.689L5.88348 10.2635L5.56627 9.95896L2.49922 7.01458L6.65728 6.74847L7.07924 6.72146L7.27456 6.34645L9.34375 2.37361Z" stroke="#A4A4A4" stroke-width="1.5"/>
-</svg>
-            </div>
+            <Checkbox checked={checked} onChange={() => setChecked(!checked)}></Checkbox>
+            <StarRating numItems={1} value={0} size={20}
+            onclick={value => setValue(value)}/>
         </div>
         <section className='mes-ch message-content'>
             <div className='highlight message-subject'>

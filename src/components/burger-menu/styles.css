@@ -12,25 +12,6 @@
     margin: 0 0 1rem 0;
 }
 
-.compose-btn {
-    height: 24px;
-    aspect-ratio: 16/9;
-    background-color: var(--black-800);
-    color: var(--white-800);
-
-    border: none;
-    padding: 1.4rem 0.9rem;
-    border-radius: .2rem;
-    width: 95%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.compose-btn p {
-    font-size: 1rem;
-}
 
 .menu-btn {
     border: none;
@@ -63,4 +44,4 @@
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: px;
     grid-row-gap: 16px;
-    }
+}

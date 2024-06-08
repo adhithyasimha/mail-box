@@ -1,20 +1,63 @@
 import React from 'react';
 import './styles.css';
-import { Button } from "baseui/button";
+import { Button} from "baseui/button";
+import { Plus } from 'baseui/icon';
+import { Navigation } from "baseui/side-navigation";
+
 const BurgerMenu = () => {
+  const [activeItemId, setActiveItemId] = React.useState("#colors");
+  const nav = [
+    {
+      title: 'Inbox',
+      itemId: '#Inbox',
+    },
+    {
+      title: 'Starred',
+      itemId: '/starred',
+    },
+    {
+      title: 'Sent', 
+      itemId: '/sent',
+    },
+    { 
+      title: 'Drafts',
+      itemId: '/drafts',
+    },
+  ];
   return (
 
 <div className="burgerMenu">
   <div className='composeSec'>
-    <Button className='compose-btn'>
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M19.1666 8.75001H11.25V0.833344H8.74998V8.75001H0.833313V11.25H8.74998V19.1667H11.25V11.25H19.1666V8.75001Z" fill="#FCFCFC"/>
-</svg>
-<p>Compose</p>
-</Button>
+    <Button startEnhancer={()=> <Plus size={24} />} overrides={{
+      BaseButton: {
+        style: ({ $theme }) => {
+          return {
+            color: $theme.colors.primaryA,
+            color: $theme.colors.mono100,
+            ':hover': {
+              backgroundColor: $theme.colors.primaryA,
+            },
+          };
+        },
+      },
+    
+    }}
+    > Compose </Button>
   </div>
   <div className='menuSec'>
-    <button className='menu-btn inbox-btn'>
+    <Navigation 
+      items={nav}
+      activeItemId={activeItemId}
+      onChange={({ item }) => setActiveItemId(item.itemId)
+      }/>
+  </div>
+</div>
+);
+};
+
+export default BurgerMenu;
+
+{/* <button className='menu-btn inbox-btn'>
       <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M11.6666 0.666672H2.33331C1.80288 0.666672 1.29417 0.877385 0.9191 1.25246C0.544027 1.62753 0.333313 2.13624 0.333313 2.66667V9.33334C0.333313 9.86377 0.544027 10.3725 0.9191 10.7476C1.29417 11.1226 1.80288 11.3333 2.33331 11.3333H11.6666C12.1971 11.3333 12.7058 11.1226 13.0809 10.7476C13.4559 10.3725 13.6666 9.86377 13.6666 9.33334V2.66667C13.6666 2.13624 13.4559 1.62753 13.0809 1.25246C12.7058 0.877385 12.1971 0.666672 11.6666 0.666672V0.666672ZM2.33331 2.00001H11.6666C11.8435 2.00001 12.013 2.07024 12.1381 2.19527C12.2631 2.32029 12.3333 2.48986 12.3333 2.66667L6.99998 5.92L1.66665 2.66667C1.66665 2.48986 1.73688 2.32029 1.86191 2.19527C1.98693 2.07024 2.1565 2.00001 2.33331 2.00001V2.00001ZM12.3333 9.33334C12.3333 9.51015 12.2631 9.67972 12.1381 9.80474C12.013 9.92977 11.8435 10 11.6666 10H2.33331C2.1565 10 1.98693 9.92977 1.86191 9.80474C1.73688 9.67972 1.66665 9.51015 1.66665 9.33334V4.18667L6.65331 7.23334C6.75466 7.29185 6.86962 7.32265 6.98665 7.32265C7.10367 7.32265 7.21863 7.29185 7.31998 7.23334L12.3333 4.18667V9.33334Z" fill="#191918"/>
       </svg><p>Inbox</p>
@@ -36,10 +79,4 @@ const BurgerMenu = () => {
       <path d="M11.3334 4.96C11.3264 4.89876 11.313 4.83842 11.2934 4.78V4.72C11.2613 4.65146 11.2185 4.58845 11.1667 4.53334V4.53334L7.16669 0.533336C7.11158 0.48148 7.04857 0.438723 6.98002 0.406669H6.92002L6.70669 0.333336H2.66669C2.13625 0.333336 1.62755 0.54405 1.25247 0.919122C0.877401 1.2942 0.666687 1.8029 0.666687 2.33334V11.6667C0.666687 12.1971 0.877401 12.7058 1.25247 13.0809C1.62755 13.456 2.13625 13.6667 2.66669 13.6667H9.33335C9.86379 13.6667 10.3725 13.456 10.7476 13.0809C11.1226 12.7058 11.3334 12.1971 11.3334 11.6667V5C11.3334 5 11.3334 5 11.3334 4.96ZM7.33335 2.60667L9.06002 4.33334H7.33335V2.60667ZM10 11.6667C10 11.8435 9.92978 12.0131 9.80476 12.1381C9.67973 12.2631 9.51016 12.3333 9.33335 12.3333H2.66669C2.48988 12.3333 2.32031 12.2631 2.19528 12.1381C2.07026 12.0131 2.00002 11.8435 2.00002 11.6667V2.33334C2.00002 2.15652 2.07026 1.98696 2.19528 1.86193C2.32031 1.73691 2.48988 1.66667 2.66669 1.66667H6.00002V5C6.00002 5.17681 6.07026 5.34638 6.19528 5.47141C6.32031 5.59643 6.48988 5.66667 6.66669 5.66667H10V11.6667Z" fill="#A4A4A4"/>
       </svg>  
       <p>Drafts</p>
-    </button>
-  </div>
-</div>
-);
-};
-
-export default BurgerMenu;
+    </button> */}

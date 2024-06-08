@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css';
+import { Avatar } from "baseui/avatar";
 
 const Navbar = () => {
   return (
@@ -22,11 +23,11 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-right">
-    <div className='profile'></div>
-    <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6 4.59991L12 -9.15527e-05V3.7999L6 8.3999L0 3.7999L0 -9.15527e-05L6 4.59991Z" fill="black"/>
-</svg>
-
+    <Avatar
+      name="Adolf Hitler"
+      size="scale1000"
+      src="https://cdn.britannica.com/58/156058-131-22083D0A/Adolf-Hitler.jpg"
+    />
   </div>
 </nav>
 );
