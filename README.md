@@ -1,10 +1,11 @@
 # This our Project on "implementing SMTP server using nodejs" 
 
-## technogilies used 
+## technologies used 
 * React
 * NodeJS
 
 
-## packages used 
+## packages/others used 
+* Baseui
 * nodemailer 
 * GSAP (for animations)
