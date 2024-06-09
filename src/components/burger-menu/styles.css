@@ -12,36 +12,15 @@
     margin: 0 0 1rem 0;
 }
 
-
-.menu-btn {
-    border: none;
-    background-color: #ffffff00;
-    height: 36px;
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.inbox-btn {
-    background-color: var(--gray-500);
-    border-left: 5px solid var(--black-800);
-}
-
-.menu-btn p {
-    margin: 0 10px;
-}
-
 .menuSec {
     height: 200px;
     width: 100%;
 }
-
+/* 
 .menuSec {
     display: grid;
     grid-template-columns: ;
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: px;
     grid-row-gap: 16px;
-}
+} */

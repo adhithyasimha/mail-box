@@ -5,7 +5,7 @@ import { Plus } from 'baseui/icon';
 import { Navigation } from "baseui/side-navigation";
 
 const BurgerMenu = () => {
-  const [activeItemId, setActiveItemId] = React.useState("#colors");
+  const [activeItemId, setActiveItemId] = React.useState("#Inbox");
   const nav = [
     {
       title: 'Inbox',
@@ -13,15 +13,15 @@ const BurgerMenu = () => {
     },
     {
       title: 'Starred',
-      itemId: '/starred',
+      itemId: '#starred',
     },
     {
       title: 'Sent', 
-      itemId: '/sent',
+      itemId: '#sent',
     },
     { 
       title: 'Drafts',
-      itemId: '/drafts',
+      itemId: '#drafts',
     },
   ];
   return (
@@ -34,6 +34,7 @@ const BurgerMenu = () => {
           return {
             color: $theme.colors.primaryA,
             color: $theme.colors.mono100,
+            width: '90%',
             ':hover': {
               backgroundColor: $theme.colors.primaryA,
             },
