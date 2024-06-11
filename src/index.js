@@ -5,6 +5,7 @@ import MailInbox from './components/Inbox/index.js';
 import Navbar from './components/nav-bar/index.js';
 import BurgerMenu from './components/burger-menu/index.js';
 import './index.css';
+import Auth from './components/auth/index.js'
 
 import { BaseProvider, LightTheme } from 'baseui';
 import { Client as Styletron } from 'styletron-engine-atomic';
@@ -17,13 +18,14 @@ root.render(
     <StyletronProvider value={new Styletron()}>
       <BaseProvider theme={LightTheme}>
         <main>
-          <section className='TopPart'>
+          {/* <section className='TopPart'>
             <Navbar />
           </section>
           <section className='bottomPart'>
             <BurgerMenu />
             <MailInbox />
-          </section>
+          </section> */}
+          <Auth />
         </main>
       </BaseProvider>
     </StyletronProvider>
