@@ -1,6 +1,4 @@
 // re_aJfU9vHL_DGMnihQa24A1Hp4eRV9Nj7KA -resend email key
-const env=require('dotenv')
-const envi=require()
 const nodemailer = require('nodemailer');
 
 // creating a delivery guy like object using the SMTP 
@@ -17,9 +15,9 @@ const transporter = nodemailer.createTransport({
 // the struct of the mail
 const message = {
   from: 'adhihtya@spaceforce1.in', 
-  to: 'himmler@nazi.com',
-  subject: 'kill jews',
-  text: 'heil hitler',
+  to: 'adhithyasimhaa@gmail.com',
+  subject: 'hello',
+  text: 'hello',
 };
 
 // sending the above struct  to the delivery guy to send it to its dest which is childs play :)
