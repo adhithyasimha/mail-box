@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 // import MailApp from './components/auth';
-import MailInbox from './components/Inbox/index.js';
+
 import Navbar from './components/nav-bar/index.js';
 import BurgerMenu from './components/burger-menu/index.js';
 import './index.css';
@@ -18,14 +18,14 @@ root.render(
     <StyletronProvider value={new Styletron()}>
       <BaseProvider theme={LightTheme}>
         <main>
-          {/* <section className='TopPart'>
+          <section className='TopPart'>
             <Navbar />
           </section>
           <section className='bottomPart'>
             <BurgerMenu />
-            <MailInbox />
-          </section> */}
-          <Auth />
+            
+          </section>
+          {/* <Auth /> */}
         </main>
       </BaseProvider>
     </StyletronProvider>

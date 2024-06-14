@@ -1,0 +1,158 @@
+.InboxContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--white);
+    color: var(--black-900);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .InboxContainer.dark {
+    background-color: var(--black);
+    color: var(--white);
+  }
+  
+  .navbar {
+    color: var(--black-900);
+    font-family: 'uber move', sans-serif, -apple-system, system-ui;
+    width: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 70px;
+    border-bottom: 1px solid var(--black-200);
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--black-800);
+    margin-right: 20px;
+  }
+  
+  .search-bar {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 10px;
+    background-color: var(--black-100);
+  }
+  
+  .search-bar input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    padding: 5px 0;
+    color: var(--black-800);
+  }
+  
+  .search-bar input::placeholder {
+    color: var(--black-600);
+  }
+  
+  .nav-links {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-right: 20px;
+    color: var(--black-800);
+  }
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 20px;
+  }
+  
+  .ContentContainer {
+    display: flex;
+    height: calc(100vh - 70px);
+  }
+  
+  .Sidebar {
+    width: 200px;
+    height: 100%;
+    background-color: var(--black-100);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .SidebarItem {
+    font-size: 1.1rem;
+    color: var(--black-800);
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  .SidebarItem:hover {
+    color: var(--black);
+  }
+  
+  .MailContainer {
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .MailItem {
+    width: 100%;
+    height: 100px;
+    background-color: var(--black-100);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .MailItem:hover {
+    background-color: var(--black-200);
+  }
+  
+  .MailItemFrom {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+  
+  .MailItemFromName {
+    font-size: 1.1rem;
+    color: var(--black-800);
+  }
+  
+  .MailItemFromEmail {
+    font-size: 0.9rem;
+    color: var(--black-600);
+  }
+  
+  .MailItemSubject {
+    font-size: 1.1rem;
+    color: var(--black-800);
+    margin-top: 10px;
+  }
+  

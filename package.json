@@ -10,6 +10,7 @@
     "axios": "^1.7.2",
     "baseui": "^0.0.0-next-6fabc7134",
     "baseweb": "^3.0.7",
+    "crypto-browserify": "^3.12.0",
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
     "nodemailer": "^6.9.13",
@@ -17,6 +18,7 @@
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
     "resend": "^3.2.0",
+    "stream-browserify": "^3.0.0",
     "styletron-engine-atomic": "^1.6.2",
     "styletron-engine-monolithic": "^1.0.0",
     "styletron-react": "^6.1.1",
@@ -52,5 +54,8 @@
   },
   "devDependencies": {
     "eslint-plugin-baseui": "^13.0.0"
+  },
+  "browser": {
+    "crypto": false
   }
 }
