@@ -1,0 +1,131 @@
+/* src/ComposeBox.css */
+.compose-box {
+    width: 500px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .compose-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f1f3f4;
+  }
+  
+  .compose-close {
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .compose-body {
+    padding: 10px;
+  }
+  
+  .compose-input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    font-size: 14px;
+  }
+  
+  .compose-input:focus {
+    outline: none;
+  }
+  
+  .compose-textarea {
+    width: 100%;
+    border: none;
+    padding: 10px 0;
+    font-size: 14px;
+    height: 150px;
+    resize: none;
+  }
+  
+  .compose-textarea:focus {
+    outline: none;
+  }
+  
+  .compose-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .compose-send-button {
+    background-color: #000306;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .compose-send-button:hover {
+    background-color: #333537;
+  }
+  
+  .compose-icons button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  
+.prompt-overlay {
+    position: relative;
+    top: -10%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:#fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    z-index: 9999;
+}
+
+.prompt-container {
+    background-color: #fff;
+    padding: 2px;
+    border-radius: 4px;
+    width: 500px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 30px;
+}
+.loading-notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .loading-notification span {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
