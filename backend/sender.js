@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const express = require('express');
+=======
+// re_aJfU9vHL_DGMnihQa24A1Hp4eRV9Nj7KA -resend email key
+>>>>>>> origin/first-test
 const nodemailer = require('nodemailer');
 const env = require('dotenv');
 const bodyParser = require('body-parser');
@@ -26,8 +30,18 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+<<<<<<< HEAD
 app.post('/api/send-email', (req, res) => {
   const { to, subject, text, fileName, fileContent } = req.body;
+=======
+// the struct of the mail
+const message = {
+  from: 'adhihtya@spaceforce1.in', 
+  to: 'adhithyasimhaa@gmail.com',
+  subject: 'hello',
+  text: 'hello',
+};
+>>>>>>> origin/first-test
 
   const message = {
     from: 'adhithya@adhithya.tech',
