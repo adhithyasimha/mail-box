@@ -1272,6 +1272,16 @@
   resolved "https://registry.npmjs.org/@csstools/selector-specificity/-/selector-specificity-2.2.0.tgz"
   integrity sha512-+OJ9konv95ClSTOJCmMZqpd5+YGsB2S+x6w3E1oaM8UuR5j8nTNHYSz8c9BEPGDOCMQYIEEGlVPj/VY64iTbGw==
 
+"@cursorify/cursors@^0.0.39":
+  version "0.0.39"
+  resolved "https://registry.npmjs.org/@cursorify/cursors/-/cursors-0.0.39.tgz"
+  integrity sha512-CNdeRMfiLpmzVTk3L6pHLf3mzi8yib8Cnd5/HNxRb3E7rZnJf+H2jrRzAQe58JCdIfHFo3uPX4xpoBlJjUsnRQ==
+
+"@cursorify/react@^0.0.39":
+  version "0.0.39"
+  resolved "https://registry.npmjs.org/@cursorify/react/-/react-0.0.39.tgz"
+  integrity sha512-K4+Eb21hxypIb0KwU4qJS3STVBxO0x5iaYvWqW33ZZ8bpT8tpMIGgPFLyNrBbfkjARG9zncqCn0A5mGa+miTGA==
+
 "@date-io/core@^2.17.0":
   version "2.17.0"
   resolved "https://registry.npmjs.org/@date-io/core/-/core-2.17.0.tgz"
@@ -1315,6 +1325,11 @@
   version "8.57.0"
   resolved "https://registry.npmjs.org/@eslint/js/-/js-8.57.0.tgz"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
+
+"@google/generative-ai@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.npmjs.org/@google/generative-ai/-/generative-ai-0.12.0.tgz"
+  integrity sha512-krWjurjEUHSFhCX4lGHMOhbnpBfYZGU31mpHpPBQwcfWm0T+/+wxC4UCAJfkxxc3/HvGJVG8r4AqrffaeDHDlA==
 
 "@gsap/react@^2.1.1":
   version "2.1.1"

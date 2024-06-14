@@ -44,10 +44,10 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-right">
-    <Avatar
+    <Avatar 
       name="Adolf Hitler"
       size="scale1000"
-      src="https://cdn.britannica.com/58/156058-131-22083D0A/Adolf-Hitler.jpg"
+      src="https://images.uncyclomedia.co/uncyclopedia/en/5/58/Adolf.gif"
     />
   </div>
 </nav>

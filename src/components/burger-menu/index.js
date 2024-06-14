@@ -27,11 +27,7 @@ const BurgerMenu = () => {
     {
       title: 'Drafts',
       itemId: '#drafts',
-    },
-    {
-      title: 'Compose',
-      itemId: '#compose',
-    },
+    }
   ];
 
   const composeButtonClickHandler = () => {
