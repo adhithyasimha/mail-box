@@ -47,7 +47,7 @@ function Inbox() {
 
 
   return (  
-    <table>
+    <table id="Inbox">
       <thead>
         <tr>
           <th>From Name</th>
@@ -73,6 +73,7 @@ function Inbox() {
           <div>{mail.subject}</div>
         </div>
       ))} */}
+      <h1>This is Inbox</h1>
     </table>
   );
 }
