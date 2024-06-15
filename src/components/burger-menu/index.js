@@ -30,6 +30,24 @@ const BurgerMenu = () => {
     }
   ];
 
+  let ActiveComponent;
+  switch (activeItemId) {
+    case '#Inbox':  
+      ActiveComponent = <Inbox />;
+      break;  
+    case '#starred':
+      ActiveComponent = <Starred />;
+      break;
+    case '#sent':
+      ActiveComponent = <SentSection />;
+      break;
+    case '#drafts':
+      ActiveComponent = <Drafts />;
+      break;
+    default:
+      ActiveComponent = <Inbox />;
+  }
+
   const composeButtonClickHandler = () => {
     setIsComposeOpen(true);
   };
