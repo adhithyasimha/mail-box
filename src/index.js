@@ -6,7 +6,7 @@ import Navbar from './components/nav-bar/index.js';
 import BurgerMenu from './components/burger-menu/index.js';
 import './index.css';
 import Auth from './components/auth/index.js'
-
+import Ai from './components/ai/front.js';
 import { BaseProvider, LightTheme } from 'baseui';
 import { Client as Styletron } from 'styletron-engine-atomic';
 import { Provider as StyletronProvider } from 'styletron-react';
@@ -27,14 +27,12 @@ root.render(
           </section>
           <section className='bottomPart'>
             <BurgerMenu />
-            {/* <Inbox/> */}
-          </section>
-         
-
+            <Inbox/>
+          </section>  
           
           {/* <Auth /> */}
         </main>
-      </BaseProvider>
+      </BaseProvider> 
     </StyletronProvider>
   </React.StrictMode>
 );

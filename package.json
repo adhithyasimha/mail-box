@@ -13,6 +13,8 @@
     "axios": "^1.7.2",
     "baseui": "^0.0.0-next-6fabc7134",
     "baseweb": "^3.0.7",
+    "cors": "^2.8.5",
+    "cros": "^1.0.1",
     "crypto-browserify": "^3.12.0",
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",

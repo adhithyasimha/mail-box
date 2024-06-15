@@ -4,6 +4,7 @@ import axios from 'axios';
 function Ai() {
   const [prompt, setPrompt] = useState('');
   const [output, setOutput] = useState('');
+  const [error, setError] = useState('');
 
   const handleChange = (event) => {
     setPrompt(event.target.value);
@@ -11,10 +12,18 @@ function Ai() {
 
   const handleClick = async () => {
     try {
-      const response = await axios.post('http://localhost:4000/api/generate', { prompt });
-      setOutput(response.data.text);
+      const response = await axios.post('http://localhost:3001/api/ai', { prompt });
+      if (response.data.success) {
+        setOutput(JSON.stringify(response.data.data, null, 2));
+        setError('');
+      } else {
+        setError(response.data.error);
+        setOutput('');
+      }
     } catch (error) {
       console.error(error);
+      setError('An error occurred while generating the email.');
+      setOutput('');
     }
   };
 
@@ -22,7 +31,8 @@ function Ai() {
     <div>
       <input type="text" value={prompt} onChange={handleChange} />
       <button onClick={handleClick}>Generate</button>
-      <p>{output}</p>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <pre>{output}</pre>
     </div>
   );
 }
