@@ -25,7 +25,7 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     user: 'resend',
-    pass: 'your-resend-password-here', // Replace with your actual password
+    pass: 're_RZfMjL6H_Q8KERcE4yYcPMhLzb5fCHt2c'// Replace with your actual password
   },
 });
 
