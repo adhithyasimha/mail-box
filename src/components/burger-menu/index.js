@@ -49,7 +49,7 @@ const BurgerMenu = () => {
                 return {
                   color: $theme.colors.primaryA,
                   color: $theme.colors.mono100,
-                  width: '90%',
+                  width: '80%',
                   ':hover': {
                     backgroundColor: $theme.colors.primaryA,
                   },

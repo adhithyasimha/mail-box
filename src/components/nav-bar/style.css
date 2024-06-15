@@ -18,11 +18,14 @@
   cursor: pointer;
 }
 
-.logo {
+.logo-text {
   font-size: 2rem;
   font-weight: bold;
   text-decoration: none;
   color: var(--black-800);
+
+  margin-bottom: .5rem;
+  margin-left: 1rem;
 }
 
 .search-bar {

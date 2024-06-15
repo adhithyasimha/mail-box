@@ -27,7 +27,7 @@ root.render(
           </section>
           <section className='bottomPart'>
             <BurgerMenu />
-            {/* <Inbox/> */}
+            {/* <Inbox/>  */}
           </section>
          
 

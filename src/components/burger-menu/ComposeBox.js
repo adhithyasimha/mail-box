@@ -1,7 +1,15 @@
 import React, { useRef, useState, useEffect } from 'react';
-import './ComposeBox.css';
+// import './ComposeBox.css';
 import { Input,SIZE } from "baseui/input";
-import { Button } from 'baseui/button';
+import { Button, KIND } from 'baseui/button';
+import {Textarea} from 'baseui/textarea';
+import { Upload } from 'baseui/icon';
+
+import CloseIcon from '@material-ui/icons/Close';
+import DeleteIcon from '@material-ui/icons/Delete';
+import FormatItalicIcon from '@material-ui/icons/FormatItalic';
+
+
 
 const ComposeBox = ({ onClose }) => {
   const fileInputRef = useRef(null);
@@ -13,6 +21,7 @@ const ComposeBox = ({ onClose }) => {
   const [fileName, setFileName] = useState('');
   const [fileContent, setFileContent] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -49,13 +58,17 @@ const ComposeBox = ({ onClose }) => {
 
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onload = async (e) => {
-      const fileContent = e.target.result.split(',')[1]; // Remove the data URL prefix
-      setFileName(file.name);
-      setFileContent(fileContent);
-    };
+    if (file) {
+      setIsLoading(true);
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const fileContent = e.target.result.split(',')[1]; // Remove the data URL prefix
+        setFileName(file.name);
+        setFileContent(fileContent);
+        setIsLoading(false);
+      };
     reader.readAsDataURL(file);
+    }
   };
 
   const handleItalicButtonClick = () => {
@@ -115,50 +128,45 @@ const ComposeBox = ({ onClose }) => {
           <div className="compose-header">
             <span>New Message</span>
             <button className="compose-close" onClick={onClose}>
-              ✖
+              <CloseIcon />
             </button>
           </div>
           <div className="compose-body">
-            <input
+            <Input
               type="email"
               className="compose-input"
               placeholder="To"
               value={to}
               onChange={(e) => setTo(e.target.value)}
             />
-            <input
+            <Input
               type="text"
               className="compose-input"
               placeholder="Subject"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
             />
-            <textarea
+            <Textarea
               className="compose-textarea"
               style={{ fontStyle: isItalic ? 'italic' : 'normal' }}
               value={message}
               onChange={handleMessageChange}
-              placeholder="Message"
-            ></textarea>
+              placeholder="Message" />
           </div>
           <div className="compose-footer">
-            <button className="compose-send-button" onClick={handleSendButtonClick}>
-              Send
-            </button>
-            <div className="compose-icons">
-              <button onClick={handleFileButtonClick}>🔗</button>
+            <div className='btn-layout'>
+              <Button onClick={handleFileButtonClick} isLoading={isLoading}  startEnhancer={()=><Upload/>}>Upload File</Button>
               <input
                 type="file"
                 ref={fileInputRef}
                 style={{ display: 'none' }}
                 onChange={handleFileChange}
               />
-              <button onClick={handlePromptButtonClick}>
-                <span className="material-symbols-outlined">🤖</span>
-              </button>
-              <button onClick={handleItalicButtonClick}>𝐼</button>
-              <button onClick={handleDiscardButtonClick}>🗑️</button>
+              <Button onClick={handlePromptButtonClick} size={SIZE.compact}>AI</Button>
+              <Button onClick={handleItalicButtonClick} size={SIZE.compact} kind={KIND.tertiary}><FormatItalicIcon /></Button>
+              <Button onClick={handleDiscardButtonClick} size={SIZE.compact} kind={KIND.tertiary}><DeleteIcon /></Button>
             </div>
+            <Button className="compose-send-button" onClick={handleSendButtonClick}>Send</Button>
           </div>
           {showPrompt && (
         <div className="prompt-overlay">
