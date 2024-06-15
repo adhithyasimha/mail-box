@@ -6,6 +6,11 @@ import { Navigation } from "baseui/side-navigation";
 import './ComposeBox.css';
 import ComposeBox from './ComposeBox';
 
+import Inbox from '../Inbox/inbox';
+import SentSection from '../sent/sent-section';
+import starredSection from '../starred';
+import draftsSection from '../drafts';
+
 
 const BurgerMenu = () => {
   const [activeItemId, setActiveItemId] = React.useState("#Inbox");
@@ -30,6 +35,24 @@ const BurgerMenu = () => {
     }
   ];
 
+  let ActiveComponent;
+  switch (activeItemId) {
+    case '#Inbox':  
+      ActiveComponent = <Inbox />;
+      break;  
+    case '#starred':
+      ActiveComponent = <starredSection />;
+      break;
+    case '#sent':
+      ActiveComponent = <SentSection />;
+      break;
+    case '#drafts':
+      ActiveComponent = <draftsSection />;
+      break;
+    default:
+      ActiveComponent = <Inbox />;
+  }
+
   const composeButtonClickHandler = () => {
     setIsComposeOpen(true);
   };
@@ -49,7 +72,7 @@ const BurgerMenu = () => {
                 return {
                   color: $theme.colors.primaryA,
                   color: $theme.colors.mono100,
-                  width: '90%',
+                  width: '80%',
                   ':hover': {
                     backgroundColor: $theme.colors.primaryA,
                   },

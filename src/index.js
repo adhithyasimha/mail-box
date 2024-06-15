@@ -27,8 +27,10 @@ root.render(
           </section>
           <section className='bottomPart'>
             <BurgerMenu />
-            <Inbox/>
-          </section>  
+            {/* <Inbox/> */}
+          </section>
+         
+
           
           {/* <Auth /> */}
         </main>
