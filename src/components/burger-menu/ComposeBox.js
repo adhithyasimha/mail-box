@@ -1,8 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './ComposeBox.css';
-import { Input, SIZE } from "baseui/input";
+import { Input, SIZE} from "baseui/input";
 import { Button,KIND } from 'baseui/button';
 import {Notification} from 'baseui/notification';
+import { Spinner} from 'baseui/icon';
 
 const ComposeBox = ({ onClose }) => {
   const fileInputRef = useRef(null);
@@ -110,11 +111,26 @@ const ComposeBox = ({ onClose }) => {
     }
   };
 
+  // function to close the compose-box when the user clicks esc button
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   return (
     <>
       {!isLoaded && (
-        <div className="loading-notification">
-          <span>Loading...</span>
+        <div className='loading-notification'>
+          <Spinner $color='#5B91F5'/>
         </div>
       )}
       <div className="compose-box" style={{ width: '500px' }}>

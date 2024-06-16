@@ -21,7 +21,6 @@ root.render(
     <StyletronProvider value={new Styletron()}>
       <BaseProvider theme={LightTheme}>
         <main>
-        
           <section className='TopPart'>
             <Navbar />
           </section>
@@ -29,9 +28,6 @@ root.render(
             <BurgerMenu />
             {/* <Inbox/> */}
           </section>
-         
-
-          
           {/* <Auth /> */}
         </main>
       </BaseProvider> 
