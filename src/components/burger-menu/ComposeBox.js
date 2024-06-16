@@ -179,10 +179,13 @@ const ComposeBox = ({ onClose }) => {
                 clearOnEscape
               />
               <br />
-              <Button onClick={handlePromptSubmit} size={SIZE.mini}>
+              <Button className="prompt-button" 
+              onClick={handlePromptSubmit} size={SIZE.mini}>
                 Enter
               </Button>
-              <Button onClick={() => setShowPrompt(false)} size={SIZE.mini}>
+              
+
+              <Button className="prompt-button"onClick={() => setShowPrompt(false)} size={SIZE.mini}>
                 Close
               </Button>
             </div>
