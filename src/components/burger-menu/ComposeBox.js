@@ -1,11 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './ComposeBox.css';
-
 import { Input, SIZE} from "baseui/input";
-import { Button, KIND } from 'baseui/button';
+import { Button,KIND } from 'baseui/button';
 import {Notification} from 'baseui/notification';
 import { Spinner} from 'baseui/icon';
-import { ArrowRight } from 'baseui/icon';
 
 const ComposeBox = ({ onClose }) => {
   const fileInputRef = useRef(null);
@@ -90,7 +88,6 @@ const ComposeBox = ({ onClose }) => {
     setShowPrompt(!showPrompt);
   };
 
-
   const handlePromptSubmit = async () => {
     try {
       const response = await fetch('http://localhost:3001/api/ai', {
@@ -129,13 +126,6 @@ const ComposeBox = ({ onClose }) => {
     };
   }, []);
 
-  // function to send the email when the user clicks "ctrl + enter"
-  const handleKeyDown = (event) => {
-    if(event.ctrlkey && event.key === 'Enter') {
-      handleSendButtonClick();
-    }
-  };
-
   return (
     <>
       {!isLoaded && (
@@ -170,28 +160,26 @@ const ComposeBox = ({ onClose }) => {
             style={{ fontStyle: isItalic ? 'italic' : 'normal' }}
             value={message}
             onChange={handleMessageChange}
-            onKeyDown={handleKeyDown}
             placeholder="Message"
           ></textarea>
         </div>
         <div className="compose-footer">
-          <Button onClick={handleSendButtonClick} 
-              startEnhancer={()=> <ArrowRight size={24} title=''/>}>
+          <button className="compose-send-button" onClick={handleSendButtonClick}>
             Send
-          </Button>
+          </button>
           <div className="compose-icons">
-            <Button onClick={handleFileButtonClick} kind={KIND.tertiary}>🔗</Button>
+            <button onClick={handleFileButtonClick}>🔗</button>
             <input
               type="file"
               ref={fileInputRef}
               style={{ display: 'none' }}
               onChange={handleFileChange}
             />
-            <Button onClick={handlePromptButtonClick}>
+            <button onClick={handlePromptButtonClick}>
               <span className="material-symbols-outlined">🤖</span>
-            </Button>
-            <Button onClick={handleItalicButtonClick} kind={KIND.tertiary}>𝐼</Button>
-            <Button onClick={handleDiscardButtonClick} kind={KIND.tertiary}>🗑️</Button>
+            </button>
+            <button onClick={handleItalicButtonClick}>𝐼</button>
+            <button onClick={handleDiscardButtonClick}>🗑️</button>
           </div>
         </div>
         {showPrompt && (
