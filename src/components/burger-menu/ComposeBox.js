@@ -1,8 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './ComposeBox.css';
-import { Input, SIZE } from "baseui/input";
+import { Input, SIZE} from "baseui/input";
 import { Button,KIND } from 'baseui/button';
 import {Notification} from 'baseui/notification';
+import { Spinner} from 'baseui/icon';
 
 const ComposeBox = ({ onClose }) => {
   const fileInputRef = useRef(null);
@@ -113,8 +114,8 @@ const ComposeBox = ({ onClose }) => {
   return (
     <>
       {!isLoaded && (
-        <div className="loading-notification">
-          <span>Loading...</span>
+        <div className='loading-notification'>
+          <Spinner $color='#5B91F5'/>
         </div>
       )}
       <div className="compose-box" style={{ width: '500px' }}>
