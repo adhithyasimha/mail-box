@@ -1,6 +1,3 @@
-
-
-
 import React, { useState } from 'react';
 import { Button } from 'baseui/button';
 import { Input } from 'baseui/input';
