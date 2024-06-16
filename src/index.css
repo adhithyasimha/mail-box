@@ -34,7 +34,7 @@ code {
     monospace;
 }
 
-
+/* 
 .TopPart {
   margin: 1.3rem 0;
   display: flex;
@@ -55,6 +55,6 @@ code {
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr;
     grid-column-gap: 8px;
-} 
+}  */
 
 /* Below code is for Authentication seciton */
