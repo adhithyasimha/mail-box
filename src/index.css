@@ -24,9 +24,16 @@ body {
   --black-900: #0e0e0f;
 
   --gray-500: #e8e8e8;
+  --gray-600: #f1f3f4;
   --gray-800: #5e5e5e;
 
   --white-800: #fcfcfc;
+
+  --blue-500: #5B91F5;
+
+  /* color gradiant */
+  --color-gradient: linear-gradient(90deg, #688AE9 0%, #C66D7B 100%);
+
 }
 
 code {
@@ -34,9 +41,10 @@ code {
     monospace;
 }
 
-/* 
+
 .TopPart {
-  margin: 1.3rem 0;
+  margin: .5rem 0;
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,15 +54,10 @@ code {
 .main {
   display: grid;
   grid-template-rows: 1fr 6fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 8px;
 }
 
 .bottomPart {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr;
-    grid-column-gap: 8px;
-}  */
+  margin: 0 1rem;
+} 
 
 /* Below code is for Authentication seciton */

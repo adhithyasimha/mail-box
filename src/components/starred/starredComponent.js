@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const starredSection = () => {
+const StarredComponent = () => {
   return (
     <div id="starred">
       <h1>Starred</h1>
@@ -8,4 +8,4 @@ const starredSection = () => {
   );
 }
 
-export default starredSection;
+export default StarredComponent;

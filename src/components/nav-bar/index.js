@@ -12,7 +12,7 @@ const Navbar = () => {
   <div className="navbar-left logo">
     {/* aspect ration is 1:1.2112 */}
     <div className='logo-icon'>
-          <svg width="45" viewBox="0 0 200 215" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="45" viewBox="0 0 200 215" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_136_237)">
       <path d="M100.249 21L21 70.3226L100.249 120L180 70.3226L100.249 21Z" stroke="#0F0F0E"/>
       <path d="M100.385 48L64 70.4194L100.385 93L137 70.4194L100.385 48Z" stroke="#0F0F0E"/>
@@ -51,7 +51,7 @@ const Navbar = () => {
               },
               ':focus': {
                 borderColor: $theme.colors.primaryA,
-              }
+              },
             }
           }
         }

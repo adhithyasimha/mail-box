@@ -13,7 +13,7 @@ function handleMailClick(mail) {
 
 // ...
 
-function Inbox() {
+function InboxComponent() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [mails, setMails] = useState([]);
 
@@ -47,7 +47,7 @@ function Inbox() {
 
 
   return (  
-    <table id="Inbox">
+    <table id="inbox">
       <thead>
         <tr>
           <th>From Name</th>
@@ -78,4 +78,4 @@ function Inbox() {
   );
 }
 
-export default Inbox;
+export default InboxComponent;

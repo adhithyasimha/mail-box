@@ -19,15 +19,22 @@
 }
 
 .logo-text {
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: bold;
   text-decoration: none;
   color: var(--black-800);
 
   margin-bottom: .7rem;
-  margin-left: .3rem;
+  margin-left: .7rem;
 }
 
 .search-bar {
   width: 50%;
 }
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const draftsSection = () => {
+const DraftsComponent = () => {
   return (
     <div id="drafts">
       <h1>Drafts</h1>
@@ -8,4 +8,4 @@ const draftsSection = () => {
   );
 }
 
-export default draftsSection;
+export default DraftsComponent;
