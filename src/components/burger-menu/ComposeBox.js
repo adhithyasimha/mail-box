@@ -1,9 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './ComposeBox.css';
-import { Input, SIZE} from "baseui/input";
-import { Button,KIND } from 'baseui/button';
-import {Notification} from 'baseui/notification';
-import { Spinner} from 'baseui/icon';
+import { Input } from 'baseui/input';
+import { Spinner } from 'baseui/icon';
 
 const ComposeBox = ({ onClose }) => {
   const fileInputRef = useRef(null);
@@ -37,13 +35,11 @@ const ComposeBox = ({ onClose }) => {
       });
       if (response.ok) {
         console.log('Email sent successfully');
-        onClose()
+        onClose();
       } else {
         console.error('Error sending email');
       }
-        console.error('Error sending email');
-      }
-     catch (error) {
+    } catch (error) {
       console.error(error);
     }
   };
@@ -111,6 +107,16 @@ const ComposeBox = ({ onClose }) => {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handlePromptSubmit();
+    }
+  };
+
+  const handleSubmit = () => {
+    handlePromptSubmit();
+  };
+
   // function to close the compose-box when the user clicks esc button
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -130,10 +136,10 @@ const ComposeBox = ({ onClose }) => {
     <>
       {!isLoaded && (
         <div className='loading-notification'>
-          <Spinner $color='#5B91F5'/>
+          <Spinner $color='#5B91F5' />
         </div>
       )}
-      <div className="compose-box" style={{ width: '500px' }}>
+      <div className="compose-box">
         <div className="compose-header">
           <span>New Message</span>
           <button className="compose-close" onClick={onClose}>
@@ -163,6 +169,34 @@ const ComposeBox = ({ onClose }) => {
             placeholder="Message"
           ></textarea>
         </div>
+        {showPrompt && (
+          <div className="prompt-overlay">
+            <div className="prompt-container">
+              <Input
+                className="prompt-input"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                onKeyPress={handleKeyPress}
+                size="compact"
+                placeholder="Ask Anything :)"
+                endEnhancer={
+                  <>
+                    <span className="prompt-icon" onClick={handleSubmit}>
+                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000" style={{ cursor: 'pointer' }}>
+                        <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z" />
+                      </svg>
+                    </span>
+                    <span className="prompt-icon" onClick={onClose}>
+                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000" style={{ cursor: 'pointer' }}>
+                        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                      </svg>
+                    </span>
+                  </>
+                }
+              />
+            </div>
+          </div>
+        )}
         <div className="compose-footer">
           <button className="compose-send-button" onClick={handleSendButtonClick}>
             Send
@@ -182,34 +216,10 @@ const ComposeBox = ({ onClose }) => {
             <button onClick={handleDiscardButtonClick}>🗑️</button>
           </div>
         </div>
-        {showPrompt && (
-          <div className="prompt-overlay">
-            <div className="prompt-container">
-              <Input
-                className="prompt-input"
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-                size={SIZE.compact}
-                placeholder="Ask Anything :)"
-                clearable
-                clearOnEscape
-              />
-              <br />
-              <Button className="prompt-button" 
-              onClick={handlePromptSubmit} size={SIZE.mini}>
-                Enter
-              </Button>
-              
-
-              <Button className="prompt-button"onClick={() => setShowPrompt(false)} size={SIZE.mini}>
-                Close
-              </Button>
-            </div>
-          </div>
-        )}
       </div>
     </>
   );
-}
+};
 
 export default ComposeBox;
+
