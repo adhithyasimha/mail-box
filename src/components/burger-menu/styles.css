@@ -1,26 +1,13 @@
-.burgerMenu {
-    width: 200px;
-    height: 70vh;
+.main-navigation {
+    width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 12px;
+    grid-row-gap: 0px;
 }
 
 .composeSec {
-    width: 100%;
-    margin: 0 0 1rem 0;
+    margin-bottom: 1.5rem;
 }
-
-.menuSec {
-    height: 200px;
-    width: 100%;
-}
-/* 
-.menuSec {
-    display: grid;
-    grid-template-columns: ;
-    grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: px;
-    grid-row-gap: 16px;
-} */
