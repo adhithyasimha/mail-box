@@ -24,8 +24,13 @@
   text-decoration: none;
   color: var(--black-800);
 
+<<<<<<< HEAD
   margin-bottom: .7rem;
   margin-left: .7rem;
+=======
+  margin-bottom: .5rem;
+  margin-left: 1rem;
+>>>>>>> parent of 6e7f70d (resized the logo)
 }
 
 .search-bar {

@@ -12,6 +12,7 @@ const Navbar = () => {
   <div className="navbar-left logo">
     {/* aspect ration is 1:1.2112 */}
     <div className='logo-icon'>
+<<<<<<< HEAD
       <svg width="45" viewBox="0 0 200 215" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_136_237)">
       <path d="M100.249 21L21 70.3226L100.249 120L180 70.3226L100.249 21Z" stroke="#0F0F0E"/>
@@ -29,6 +30,18 @@ const Navbar = () => {
       </clipPath>
       </defs>
       </svg>
+=======
+      <svg height="45" viewBox="0 0 161 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M80.2492 1L1 50.3226L80.2492 100L160 50.3226L80.2492 1Z" stroke="#0F0F0E"/>
+  <path d="M80.3849 28L44 50.4194L80.3849 73L117 50.4194L80.3849 28Z" stroke="#0F0F0E"/>
+  <path d="M80.5 28V73" stroke="#0F0F0E"/>
+  <path d="M80.2492 1L1 50.3226L80.2492 100L160 50.3226L80.2492 1Z" fill="white" stroke="#0F0F0E"/>
+  <path d="M80.3849 28L44 50.4194L80.3849 73L117 50.4194L80.3849 28Z" fill="#0F0F0E" stroke="#0F0F0E"/>
+  <path d="M80.5 27V74" stroke="white" stroke-width="0.2"/>
+  <path d="M160.33 139.274L160.186 51.0066L80.839 100.62L81.2333 194.331L160.33 139.274Z" fill="#0F0F0E" fill-opacity="0.95" stroke="#0F0F0E" stroke-opacity="0.95"/>
+  <path d="M0.999971 151.5L80.3979 194.5L80.3979 100.426L1.00002 51L0.999971 151.5Z" fill="#0F0F0E" stroke="#0F0F0E"/>
+  </svg>
+>>>>>>> parent of 6e7f70d (resized the logo)
     </div>
     <div className='logo-text'>
       Mail Box 
