@@ -13,7 +13,6 @@ import InboxComponent from '../inbox/inboxComponent.js';
 import StarredComponent from '../starred/starredComponent.js';
 import SentComponent from '../sent/sentComponent.js';
 import DraftsComponent from '../drafts/draftsComponent.js';
- 
 
 const BurgerMenu = () => {
   const [activeItemId, setActiveItemId] = React.useState("#inbox");
@@ -55,7 +54,7 @@ const BurgerMenu = () => {
                 style: ({ $theme }) => {
                   return {
                     color: $theme.colors.mono100,
-                    width: '75%',
+                    width: '90%',
                     ':hover': {
                       backgroundColor: $theme.colors.primaryA,
                     },
