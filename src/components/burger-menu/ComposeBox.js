@@ -195,7 +195,7 @@ const ComposeBox = ({ onClose }) => {
                     <span className="prompt-icon" onClick={handleSubmit}>
                       <SendIcon/>
                     </span>
-                    <span className="prompt-icon" onClick={onClose}>
+                    <span className="prompt-icon" onClick={handlePromptButtonClick}>
                       <CloseIcon />
                     </span>
                   </>
