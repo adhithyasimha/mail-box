@@ -102,4 +102,5 @@ const BurgerMenu = () => {
     </section>
   );
 };
+
 export default BurgerMenu;

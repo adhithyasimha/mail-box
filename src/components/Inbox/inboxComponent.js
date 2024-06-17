@@ -1,3 +1,48 @@
+import React from "react";
+import { useEffect } from "react";
+import './inbox.css';
+import { createClient } from "@supabase/supabase-js";
+
+function InboxComponent() {
+  return (
+    <h1>This is Inbox</h1>
+  );
+}
+
+export default InboxComponent;
+
+// function InboxComponent() {
+//   const supabaseUrl = '';
+//   const supabaseKey = '';
+//   const supabase = createClient(supabaseUrl, supabaseKey);
+
+//   useEffect(()=>{
+//     const fetchMails = async()=> {
+//       let {data: mails, error} = await supabase
+//       .from('mails')
+//       .select('*');
+
+//     if (error) console.error('Error fetching mails:', error);
+//     else setMails(mails);
+//     };
+//     fetchMails();
+//   }, []);
+
+//   return (
+//     <div>
+//       {mails.map((mail) => (
+//         <div key={mail.id} onClick={()=> handleMailClick(mail)}>
+//           <h2> {mail.subject}</h2>
+//           <p>from: {mail.from}</p>
+//           <p>{mail.message}</p>
+//         </div>
+//       ))}
+//     </div>
+//   );
+
+// }
+
+// export default InboxComponent;
 // import React, { useEffect, useState } from 'react';
 // import './inbox.css';
 
@@ -64,7 +109,7 @@
 //           </tr>
 //         ))}
 //       </tbody>
-//       {/* {mails.map((mail) => (
+//       {mails.map((mail) => (
 //         <div key={mail.id} className="MailItem" onClick={() => handleMailClick(mail)}>
 //           <div className="MailItemFrom">
 //             <div className="MailItemFromName">{mail.from.value[0].name}</div>
@@ -72,10 +117,11 @@
 //           </div>
 //           <div>{mail.subject}</div>
 //         </div>
-//       ))} */}
+//       ))}
 //       <h1>This is Inbox</h1>
 //     </table>
 //   );
 // }
 
 // export default Inbox;
+
