@@ -10,6 +10,7 @@ import LinkIcon from '@material-ui/icons/Link';
 import FormatItalicIcon from '@material-ui/icons/FormatItalic';
 import { ArrowRight } from 'baseui/icon';
 import CloseIcon from '@material-ui/icons/Close';
+import SendIcon from '@material-ui/icons/Send';
 
 
 
@@ -192,14 +193,10 @@ const ComposeBox = ({ onClose }) => {
                 endEnhancer={
                   <>
                     <span className="prompt-icon" onClick={handleSubmit}>
-                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000" style={{ cursor: 'pointer' }}>
-                        <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z" />
-                      </svg>
+                      <SendIcon/>
                     </span>
                     <span className="prompt-icon" onClick={onClose}>
-                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000" style={{ cursor: 'pointer' }}>
-                        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-                      </svg>
+                      <CloseIcon />
                     </span>
                   </>
                 }
