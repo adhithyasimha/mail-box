@@ -3,6 +3,15 @@ import './ComposeBox.css';
 import { Input } from 'baseui/input';
 import { Spinner } from 'baseui/icon';
 
+// icons 
+import DeleteIcon from '@material-ui/icons/Delete';
+import LinkIcon from '@material-ui/icons/Link';
+import FormatItalicIcon from '@material-ui/icons/FormatItalic';
+import { ArrowRight } from 'baseui/icon';
+import CloseIcon from '@material-ui/icons/Close';
+
+
+
 const ComposeBox = ({ onClose }) => {
   const fileInputRef = useRef(null);
   const [to, setTo] = useState('');
@@ -143,7 +152,7 @@ const ComposeBox = ({ onClose }) => {
         <div className="compose-header">
           <span>New Message</span>
           <button className="compose-close" onClick={onClose}>
-            ✖
+            <CloseIcon />
           </button>
         </div>
         <div className="compose-body">
@@ -198,22 +207,41 @@ const ComposeBox = ({ onClose }) => {
           </div>
         )}
         <div className="compose-footer">
-          <button className="compose-send-button" onClick={handleSendButtonClick}>
+          <Button className="compose-send-button" 
+            onClick={handleSendButtonClick}
+            startEnhancer={()=><ArrowRight size={24} title=''/>}>
             Send
-          </button>
+          </Button>
           <div className="compose-icons">
-            <button onClick={handleFileButtonClick}>🔗</button>
+            <button className='Ai-btn' onClick={handlePromptButtonClick}>
+            <span>ask AI</span>
+              <div className='ai-icon'>
+                <svg width="20" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 52.9608C26.6871 51.9109 48 29.9445 48 3C48 30.6143 70.3857 53 98 53C71.3929 53 49.64 73.7825 48.0885 100H47.9115C46.399 74.4425 25.6895 54.0498 0 53.0392V52.9608ZM100 53.0392C99.3365 53.0131 98.6698 53 98 53C98.4418 53 98.8823 52.9943 99.3214 52.9829C99.3984 52.9809 99.4753 52.9788 99.5522 52.9764C99.7017 52.9719 99.8508 52.9666 100 52.9608V53.0392ZM48 3C48 1.99274 48.0298 0.992493 48.0885 0H47.9115C47.9702 0.992493 48 1.99274 48 3Z" fill="url(#paint0_linear_150_249)"/>
+                <defs>
+                <linearGradient id="paint0_linear_150_249" x1="0.0475285" y1="40.3846" x2="100" y2="40.5" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#688AE9"/>
+                <stop offset="1" stop-color="#C66D7B"/>
+                </linearGradient>
+                </defs>
+                </svg>
+              </div>
+            </button>
+            <Button onClick={handleFileButtonClick} kind={KIND.tertiary}>
+              <LinkIcon />
+            </Button>
             <input
               type="file"
               ref={fileInputRef}
               style={{ display: 'none' }}
               onChange={handleFileChange}
             />
-            <button onClick={handlePromptButtonClick}>
-              <span className="material-symbols-outlined">🤖</span>
-            </button>
-            <button onClick={handleItalicButtonClick}>𝐼</button>
-            <button onClick={handleDiscardButtonClick}>🗑️</button>
+            <Button onClick={handleItalicButtonClick} kind={KIND.tertiary}>
+              <FormatItalicIcon />
+            </Button>
+            <Button onClick={handleDiscardButtonClick} kind={KIND.tertiary}>
+              <DeleteIcon />
+            </Button>
           </div>
         </div>
       </div>
