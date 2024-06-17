@@ -61,7 +61,11 @@ app.post('/api/send-email', async (req, res) => {
       console.error('Supabase insert error:', error);
       res.status(500).send({ error: 'Error inserting email into database', details: error });
     } else if (data && data.length > 0) {
+<<<<<<< HEAD
       console.log('Email inserted into database with ID: ${data[0].id}');
+=======
+      console.log(`Email inserted into database with ID: ${data[0].id}`);
+>>>>>>> ed294661ab78f46e24e5140105f2dd8bbe77cbee
       res.send('Email sent successfully');
     } else {
       console.error('No data returned from Supabase insert operation');
@@ -91,6 +95,77 @@ app.get('/api/supabase-sent', async (req, res) => {
     console.error('Error fetching emails:', error);
     res.status(500).send('Error fetching emails');
   }
+<<<<<<< HEAD
+=======
+});
+
+//receiving route
+// app.get('/api/receive-mail', async (req, res) => {
+//   try {
+//     const { data, error } = await supabase
+//       .from('receive_mail')
+//       .select('*');
+
+//     if (error) {
+//       console.error('Supabase fetch error:', error);
+//       res.status(500).send('Error fetching emails from database');
+//     } else {
+//       res.json(data);
+//     }
+//   } catch (error) {
+//     console.error('Error fetching emails:', error);
+//     res.status(500).send('Error fetching emails');
+//   }
+// });
+// ai generative feature
+const apiKey = 'AIzaSyAThnU4c163VEY5yv6RtKZHnEaBMYdPTug';
+const genAI = new GoogleGenerativeAI(apiKey);
+
+const model = genAI.getGenerativeModel({
+  model: 'gemini-1.5-flash',
+});
+
+const generationConfig = {
+  temperature: 1,
+  topP: 0.95,
+  topK: 64,
+  maxOutputTokens: 8192,
+  responseMimeType: 'text/plain',
+};
+
+app.post('/api/ai', async (req, res) => {
+  try {
+    const input = req.body.prompt;
+    console.log('Received input:', input);
+
+    const chatSession = model.startChat({
+      generationConfig,
+      history: [],
+    });
+
+    const result = await chatSession.sendMessage(`Write an email about "${input}" and return the subject and body as a json object. Only subject and body are needed, nothing else. The response should be a valid JSON object, with no backticks or additional text.`);
+
+    const responseText = await result.response.text();
+    console.log('AI Response:', responseText);
+
+    // Attempt to parse the response as JSON
+    let parsedResponse;
+    try {
+      parsedResponse = JSON.parse(responseText);
+      res.json({ success: true, data: parsedResponse });
+    } catch (parseError) {
+      console.error('Error parsing AI response:', parseError);
+      res.status(500).json({ success: false, error: 'Error parsing AI response.' });
+    }
+  } catch (error) {
+    console.error('Error generating email:', error);
+    res.status(500).json({ success: false, error: 'An error occurred while generating the email.' });
+  }
+});
+
+app.listen(3001, () => {
+  console.log('Server listening on port 3001');
+>>>>>>> ed294661ab78f46e24e5140105f2dd8bbe77cbee
 });
 
 //receiving route
