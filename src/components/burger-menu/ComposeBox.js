@@ -1,9 +1,19 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './ComposeBox.css';
-import { Input, SIZE} from "baseui/input";
-import { Button,KIND } from 'baseui/button';
+
 import {Notification} from 'baseui/notification';
+import { Input, SIZE} from "baseui/input";
+import { Button, KIND } from 'baseui/button';
 import { Spinner} from 'baseui/icon';
+
+// icons 
+import DeleteIcon from '@material-ui/icons/Delete';
+import LinkIcon from '@material-ui/icons/Link';
+import FormatItalicIcon from '@material-ui/icons/FormatItalic';
+import { ArrowRight } from 'baseui/icon';
+import CloseIcon from '@material-ui/icons/Close';
+
+
 
 const ComposeBox = ({ onClose }) => {
   const fileInputRef = useRef(null);
@@ -137,7 +147,7 @@ const ComposeBox = ({ onClose }) => {
         <div className="compose-header">
           <span>New Message</span>
           <button className="compose-close" onClick={onClose}>
-            ✖
+            <CloseIcon />
           </button>
         </div>
         <div className="compose-body">
@@ -164,24 +174,33 @@ const ComposeBox = ({ onClose }) => {
           ></textarea>
         </div>
         <div className="compose-footer">
-          <button className="compose-send-button" onClick={handleSendButtonClick}>
+          <Button className="compose-send-button" 
+            onClick={handleSendButtonClick}
+            startEnhancer={()=><ArrowRight size={24} title=''/>}>
             Send
-          </button>
+          </Button>
           <div className="compose-icons">
-            <button onClick={handleFileButtonClick}>🔗</button>
+            <button className='Ai-btn' onClick={handlePromptButtonClick}>
+              
+            </button>
+            <Button onClick={handleFileButtonClick} kind={KIND.tertiary}>
+              <LinkIcon />
+            </Button>
             <input
               type="file"
               ref={fileInputRef}
               style={{ display: 'none' }}
               onChange={handleFileChange}
             />
-            <button onClick={handlePromptButtonClick}>
-              <span className="material-symbols-outlined">🤖</span>
-            </button>
-            <button onClick={handleItalicButtonClick}>𝐼</button>
-            <button onClick={handleDiscardButtonClick}>🗑️</button>
+            <Button onClick={handleItalicButtonClick} kind={KIND.tertiary}>
+              <FormatItalicIcon />
+            </Button>
+            <Button onClick={handleDiscardButtonClick} kind={KIND.tertiary}>
+              <DeleteIcon />
+            </Button>
           </div>
         </div>
+
         {showPrompt && (
           <div className="prompt-overlay">
             <div className="prompt-container">
@@ -199,8 +218,6 @@ const ComposeBox = ({ onClose }) => {
               onClick={handlePromptSubmit} size={SIZE.mini}>
                 Enter
               </Button>
-              
-
               <Button className="prompt-button"onClick={() => setShowPrompt(false)} size={SIZE.mini}>
                 Close
               </Button>

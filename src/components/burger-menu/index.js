@@ -3,7 +3,7 @@ import React from 'react';
 import './styles.css';
 
 import { Button } from "baseui/button";
-import { Plus } from 'baseui/icon';
+import AddIcon from '@material-ui/icons/Add'
 import { Navigation } from "baseui/side-navigation";
 
 import './ComposeBox.css';
@@ -49,17 +49,17 @@ const BurgerMenu = () => {
       <aside className="burgerMenu">
         <div className='composeSec'>
           <Button
-            startEnhancer={() => <Plus size={24} />}
+            startEnhancer={() => <AddIcon/>}
             overrides={{
               BaseButton: {
                 style: ({ $theme }) => {
                   return {
-                    color: $theme.colors.primaryA,
                     color: $theme.colors.mono100,
-                    width: '80%',
+                    width: '75%',
                     ':hover': {
                       backgroundColor: $theme.colors.primaryA,
                     },
+                    fontSize: '1.2rem',
                   };
                 },
               },
@@ -80,6 +80,7 @@ const BurgerMenu = () => {
 
           />
         </div>
+
         {isComposeOpen && <ComposeBox onClose={handleCloseCompose} />}
       </aside>
       <aside className='contentSec'>
