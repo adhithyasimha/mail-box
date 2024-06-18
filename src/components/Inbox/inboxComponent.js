@@ -1,48 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import './inbox.css';
 import { createClient } from "@supabase/supabase-js";
+import { supabase } from "./supabaseClient";
 
 function InboxComponent() {
+//   return (
+//     <h1>This is Inbox</h1>
+//   );
+// }
+  const [inboxMails, setInboxMails] = useState([]);
+  const supabaseUrl = 'https://djkrtmwwfohyonafoumv.supabase.co';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqa3J0bXd3Zm9oeW9uYWZvdW12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTg1MTY5MjYsImV4cCI6MjAzNDA5MjkyNn0.coE-6KquwZi_KQlc893niek7iuSV-B7U46oNVGt3cp8';
+  const supabase = createClient(supabaseUrl, supabaseKey);
+
+  useEffect(()=>{
+    const fetchMails = async()=> {
+      let {data, error} = await supabase
+      .from('inboxMails')
+      .select('*');
+      
+      if (error) console.error(error);
+      else setInboxMails(data);
+    };
+    fetchMails();
+  }, []);
+
+  const handleMailClick = (mail) => {
+    console.log(mail)
+  };
+
   return (
-    <h1>This is Inbox</h1>
+    <div>
+      {inboxMails.map((mail) => (
+        <div key={mail.id} onClick={()=> handleMailClick(mail)}>
+          <h2> {mail.subject}</h2>
+          <p>from: {mail.from_address}</p>
+          <p>{mail.body}</p>
+        </div>
+      ))}
+    </div>
   );
+
 }
 
 export default InboxComponent;
-
-// function InboxComponent() {
-//   const supabaseUrl = '';
-//   const supabaseKey = '';
-//   const supabase = createClient(supabaseUrl, supabaseKey);
-
-//   useEffect(()=>{
-//     const fetchMails = async()=> {
-//       let {data: mails, error} = await supabase
-//       .from('mails')
-//       .select('*');
-
-//     if (error) console.error('Error fetching mails:', error);
-//     else setMails(mails);
-//     };
-//     fetchMails();
-//   }, []);
-
-//   return (
-//     <div>
-//       {mails.map((mail) => (
-//         <div key={mail.id} onClick={()=> handleMailClick(mail)}>
-//           <h2> {mail.subject}</h2>
-//           <p>from: {mail.from}</p>
-//           <p>{mail.message}</p>
-//         </div>
-//       ))}
-//     </div>
-//   );
-
-// }
-
-// export default InboxComponent;
 // import React, { useEffect, useState } from 'react';
 // import './inbox.css';
 

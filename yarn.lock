@@ -1897,6 +1897,13 @@
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
 
+"@supabase/gotrue-js@^2.64.3":
+  version "2.64.3"
+  resolved "https://registry.npmjs.org/@supabase/gotrue-js/-/gotrue-js-2.64.3.tgz"
+  integrity sha512-Rql+txnKu1iGl8pZ2NG24nNWtRIaGzC61UZ8G6XVnqt1A8fmq/VXAnNvbuyStMtFV8l9bQnduAB6C1eD+2Eq2Q==
+  dependencies:
+    "@supabase/node-fetch" "^2.6.14"
+
 "@supabase/node-fetch@^2.6.14", "@supabase/node-fetch@2.6.15":
   version "2.6.15"
   resolved "https://registry.npmjs.org/@supabase/node-fetch/-/node-fetch-2.6.15.tgz"
