@@ -1,0 +1,30 @@
+.mail-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.from-to {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 95%;
+    padding: 10px 2rem;
+}
+
+p {
+    font-size: .85rem;
+}
+
+.in-from-to {
+    margin-left: 1rem;
+    line-height: 0.7rem;
+}
+
+.time {
+    flex-grow: 1;
+    text-align: right;
+    align-self: flex-start;
+}
