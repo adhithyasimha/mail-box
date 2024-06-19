@@ -3,12 +3,16 @@ import { useEffect } from "react";
 import './inbox.css';
 import { createClient } from "@supabase/supabase-js";
 import { supabase } from "./supabaseClient";
+import '../table-design.css';
+import {Table} from 'baseui/table';
 
 function InboxComponent() {
+  
 //   return (
 //     <h1>This is Inbox</h1>
 //   );
 // }
+
   const [inboxMails, setInboxMails] = useState([]);
   const supabaseUrl = 'https://djkrtmwwfohyonafoumv.supabase.co';
   const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqa3J0bXd3Zm9oeW9uYWZvdW12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTg1MTY5MjYsImV4cCI6MjAzNDA5MjkyNn0.coE-6KquwZi_KQlc893niek7iuSV-B7U46oNVGt3cp8';
@@ -30,21 +34,19 @@ function InboxComponent() {
     console.log(mail)
   };
 
+  const columns = ['Subject', 'From', 'Body'];
+  const data = inboxMails.map(mail => [mail.subject, mail.from_address, mail.body]);
+
   return (
-    <div>
-      {inboxMails.map((mail) => (
-        <div key={mail.id} onClick={()=> handleMailClick(mail)}>
-          <h2> {mail.subject}</h2>
-          <p>from: {mail.from_address}</p>
-          <p>{mail.body}</p>
-        </div>
-      ))}
+    <div className="mail-container">
+      <Table columns={columns} data={data} onRowClick={({rowData}) => handleMailClick(rowData)}/>
     </div>
   );
 
 }
 
 export default InboxComponent;
+
 // import React, { useEffect, useState } from 'react';
 // import './inbox.css';
 

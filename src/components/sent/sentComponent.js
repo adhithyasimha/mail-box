@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Table } from 'baseui/table';
 
 const SentSection = () => {
   const [sentMails, setSentMails] = useState([]);
@@ -10,27 +11,31 @@ const SentSection = () => {
       .catch(error => console.error('Error fetching sent emails:', error));
   }, []);
 
+  const columns = ['To', 'Subject', 'Message', 'Time'];
+  const data = sentMails.map(mail => [mail.to_email, mail.subject, mail.message, new Date(mail.sent_at).toLocaleString()])
+
   return (
-    <table id="sent">
-      <thead>
-        <tr>
-          <th>To</th>
-          <th>Subject</th>
-          <th>Message</th>
-          <th>Time Sent</th>
-        </tr>
-      </thead>
-      <tbody>
-        {sentMails.map((mail, index) => (
-          <tr key={index}>
-            <td>{mail.to_email}</td>
-            <td>{mail.subject}</td>
-            <td>{mail.message}</td>
-            <td>{new Date(mail.sent_at).toLocaleString()}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <Table columns={columns} data={data} />
+    // <table id="sent">
+    //   <thead>
+    //     <tr>
+    //       <th>To</th>
+    //       <th>Subject</th>
+    //       <th>Message</th>
+    //       <th>Time Sent</th>
+    //     </tr>
+    //   </thead>
+    //   <tbody>
+    //     {sentMails.map((mail, index) => (
+    //       <tr key={index}>
+    //         <td>{mail.to_email}</td>
+    //         <td>{mail.subject}</td>
+    //         <td>{mail.message}</td>
+    //         <td>{new Date(mail.sent_at).toLocaleString()}</td>
+    //       </tr>
+    //     ))}
+    //   </tbody>
+    // </table>
   );
 }
 
