@@ -11,7 +11,7 @@
     justify-content: space-evenly;
 
     width: 95%;
-    padding: 10px 2rem;
+    padding: 10px 0;
 }
 
 p {
@@ -27,4 +27,9 @@ p {
     flex-grow: 1;
     text-align: right;
     align-self: flex-start;
+}
+
+.message {
+    width: 95%;
+    padding: 10px 0;
 }

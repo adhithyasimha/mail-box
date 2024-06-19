@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { Table } from 'baseui/table';
 import { Block } from 'baseui/block';
 import { Button } from 'baseui/button';
@@ -34,7 +34,7 @@ const SentSection = () => {
         }
       
       }}>
-        {value}        
+        {value}
     </Block>
   );
 
@@ -62,7 +62,11 @@ const SentSection = () => {
           </aside>
         </section>
         <section className='message'>
-          <article><strong>Message:</strong> {selectedMail.message}</article>
+          <h3>Message:</h3> 
+          <article>{selectedMail.message}</article>
+        </section>
+        <section className='attachments'>
+          <div>{selectedMail.file_content}</div>
         </section>
       </div>
     ) : (
