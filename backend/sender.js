@@ -205,7 +205,7 @@ app.post('/api/ai', async (req, res) => {
       history: [],
     });
 
-    const result = await chatSession.sendMessage('Write an email about "${input}" and return the subject and body as a json object. Only subject and body are needed, nothing else. The response should be a valid JSON object, with no backticks or additional text.');
+    const result = await chatSession.sendMessage(`Write an email about "${input}" and return the subject and body as a json object. Only subject and body are needed, nothing else. The response should be a valid JSON object, with no backticks or additional text.`);
 
     const responseText = await result.response.text();
     console.log('AI Response:', responseText);
