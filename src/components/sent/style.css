@@ -1,0 +1,10 @@
+a {
+    color: var(--white-800);
+    text-decoration: none;
+}
+
+.attSec {
+    display: flex;
+    align-items: center;
+}
+

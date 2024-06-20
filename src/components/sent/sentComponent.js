@@ -5,7 +5,8 @@ import { Button, SIZE, KIND, SHAPE } from 'baseui/button';
 import { Avatar } from 'baseui/avatar';
 
 import { ChevronLeft } from 'baseui/icon';
-
+import GetAppIcon from '@material-ui/icons/GetApp';
+import './style.css';
 
 const SentSection = () => {
   const [sentMails, setSentMails] = useState([]);
@@ -53,7 +54,7 @@ const SentSection = () => {
 
     if(fileType) {
       return(
-        <div style={{display: 'flex', alignItems: 'center'}}>
+        <div className="attSec" style={{display: 'flex', alignItems: 'center'}}>
           {fileType.startsWith('image') && (
             <img src={`data:${fileType};base64,${fileContent}`}
               alt={fileName}
@@ -65,9 +66,14 @@ const SentSection = () => {
               Your browser does not support the audion element
             </audio>
           )}
-          <a href={`data:${fileType};base64,${fileContent}`} download={fileName}>
-            {fileName}
-          </a>
+          <Button startEnhancer={()=><GetAppIcon/>}>
+            <a href={`data:${fileType};base64,${fileContent}`} 
+              download={fileName}
+              >
+              {fileName}
+            </a>
+          </Button>
+          
         </div>
       );
     }
