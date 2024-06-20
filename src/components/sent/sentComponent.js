@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
 import { Table } from 'baseui/table';
 import { Block } from 'baseui/block';
-import { Button } from 'baseui/button';
+import { Button, SIZE } from 'baseui/button';
 import { Avatar } from 'baseui/avatar';
 
 import { ChevronLeft } from 'baseui/icon';
@@ -38,12 +38,49 @@ const SentSection = () => {
     </Block>
   );
 
+  // function for rendering file attachments 
+  const renderAttachment = (fileName, fileContent) => {
+    const fileExtension = fileName.split('.').pop();
+    const fileTypes = {
+      'jpg': 'image/jpg',
+      'jpeg' : 'image/jpeg',
+      'png' : 'image/png',
+      'mp3' : 'audio/mpeg',
+      'mp4' : 'video/mp4'
+    };
+
+    const fileType = fileTypes[fileExtension];
+
+    if(fileType) {
+      return(
+        <div style={{display: 'flex', alignItems: 'center'}}>
+          {fileType.startsWith('image') && (
+            <img src={`data:${fileType};base64,${fileContent}`}
+              alt={fileName}
+              style={{ maxWidth: '300px', marginRight : '1rem' }} />
+          )}
+          {fileType.startsWith('audio') && (
+            <audio controls style={{ marginRight : '1rem' }}>
+              <source src={`data:${fileType};base64,${fileContent}`} type={fileType}/>
+              Your browser does not support the audion element
+            </audio>
+          )}
+          <a href={`data:${fileType};base64,${fileContent}`} download={fileName}>
+            {fileName}
+          </a>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <>
     {selectedMail ? (
       <div className='mail-container'>
         <section className='top-nav'>
-          <Button onClick={()=>setSelectedMail(null)}><ChevronLeft size={24}/></Button>
+          <Button onClick={()=>setSelectedMail(null)}
+            size={SIZE.mini}><ChevronLeft size={24}/></Button>
         </section>
         <section className='subject'> 
           <h2>{selectedMail.subject}</h2>
@@ -66,7 +103,12 @@ const SentSection = () => {
           <article>{selectedMail.message}</article>
         </section>
         <section className='attachments'>
-          <div>{selectedMail.file_content}</div>
+          {selectedMail.file_name && selectedMail.file_content && (
+            <div>
+              <p><strong>Attachments: </strong>{selectedMail.file_name}</p>
+              {renderAttachment(selectedMail.file_name, selectedMail.file_content)}
+            </div>
+          )}
         </section>
       </div>
     ) : (

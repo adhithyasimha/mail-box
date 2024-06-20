@@ -133,19 +133,13 @@
   align-items: center;
   justify-content: space-evenly;
 
-  height: 3rem;
-  aspect-ratio: 21/9;
+  height: 2.5rem;
+  aspect-ratio: 6/3;
 
-  outline: none;
-  border: none;
-  border-radius: 10rem;
-
-  cursor: pointer;
   color: var(--white-800);
-
-  background: linear-gradient(45deg, #439DDF 0%, #4F87ED 23%, #9476C5 48%, #BC688E 69%, #D6645D 100%);
 }
 
 .compose-icons {
   display: flex;
+  align-items: center;
 }

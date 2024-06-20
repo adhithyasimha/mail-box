@@ -38,7 +38,7 @@ function InboxComponent() {
   const data = inboxMails.map(mail => [mail.subject, mail.from_address, mail.body]);
 
   return (
-    <div className="mail-container">
+    <div>
       <Table columns={columns} data={data} onRowClick={({rowData}) => handleMailClick(rowData)}/>
     </div>
   );
