@@ -129,17 +129,17 @@
 /* Ai button */
 
 .Ai-btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-
   height: 2.5rem;
-  aspect-ratio: 6/3;
-
-  color: var(--white-800);
+  width: 6rem;
 }
 
 .compose-icons {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
+}
+
+.space {
+  width: 20px;
+  aspect-ratio: 1/1;
 }

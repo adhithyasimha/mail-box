@@ -216,11 +216,11 @@ const ComposeBox = ({ onClose }) => {
               <div className='ai-icon'>
                 {/* Your SVG icon here */}
                 <svg width="15" height="93" viewBox="0 0 100 93" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.10352e-05 50C27.6143 50 50.0001 27.6142 50.0001 0C50.0001 27.6142 72.3858 50 100 50C74.7955 50 53.9468 68.6493 50.5001 92.9017C47.0533 68.6493 26.2046 50 1.00006 50C0.665932 50 0.332568 50.0033 0 50.0098V50H6.10352e-05Z" fill="#181818"/>
-</svg>
-
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M6.10352e-05 50C27.6143 50 50.0001 27.6142 50.0001 0C50.0001 27.6142 72.3858 50 100 50C74.7955 50 53.9468 68.6493 50.5001 92.9017C47.0533 68.6493 26.2046 50 1.00006 50C0.665932 50 0.332568 50.0033 0 50.0098V50H6.10352e-05Z" fill="#5b91f5"/>
+                </svg>
               </div>
             </Button>
+            <span className='space'></span>
             <Button onClick={handleFileButtonClick} kind={KIND.tertiary} shape={SHAPE.pill} size={SIZE.mini}>
               <LinkIcon />
             </Button>

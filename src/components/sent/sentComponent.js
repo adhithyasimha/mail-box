@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
 import { Table } from 'baseui/table';
 import { Block } from 'baseui/block';
-import { Button, SIZE } from 'baseui/button';
+import { Button, SIZE, KIND, SHAPE } from 'baseui/button';
 import { Avatar } from 'baseui/avatar';
 
 import { ChevronLeft } from 'baseui/icon';
@@ -80,7 +80,9 @@ const SentSection = () => {
       <div className='mail-container'>
         <section className='top-nav'>
           <Button onClick={()=>setSelectedMail(null)}
-            size={SIZE.mini}><ChevronLeft size={24}/></Button>
+            size={SIZE.compact}
+            kind={KIND.secondary}> <ChevronLeft size={24}/>
+          </Button>
         </section>
         <section className='subject'> 
           <h2>{selectedMail.subject}</h2>
