@@ -151,9 +151,13 @@ const ComposeBox = ({ onClose }) => {
       <div className="compose-box">
         <div className="compose-header">
           <span>New Message</span>
-          <button className="compose-close" onClick={onClose}>
+          <Button className="compose-close"
+            shape={SHAPE.pill}
+            kind={KIND.secondary}
+            size={SIZE.mini}
+            onClick={onClose}>
             <CloseIcon />
-          </button>
+          </Button>
         </div>
         <div className="compose-body">
           <input

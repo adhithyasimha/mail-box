@@ -3,6 +3,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
+    padding-bottom: 1rem;
+    overflow: hidden;
 }
 
 .from-to {

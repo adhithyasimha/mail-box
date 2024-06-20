@@ -1,12 +1,14 @@
 import React, { Component, useEffect, useState } from 'react';
-import { Table } from 'baseui/table';
+import { Table } from 'baseui/table-semantic';
 import { Block } from 'baseui/block';
 import { Button, SIZE, KIND, SHAPE } from 'baseui/button';
 import { Avatar } from 'baseui/avatar';
+import { Pagination } from 'baseui/pagination';
 
 import { ChevronLeft } from 'baseui/icon';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import './style.css';
+import { FormatAlignJustifyOutlined } from '@material-ui/icons';
 
 const SentSection = () => {
   const [sentMails, setSentMails] = useState([]);
@@ -80,6 +82,21 @@ const SentSection = () => {
     return null;
   };
 
+  // pagination 
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const rowsPerPage = 9;
+  const totalNumPages = Math.ceil(sentMails.length / rowsPerPage);
+
+  const pagedData = sentMails
+  .sort((a,b) => new Date(b.sent_at) - new Date(a.sent_at))
+  .slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage)
+  .map((mail) => [
+    renderCell(mail.to_email, mail),
+    renderCell(mail.subject, mail),
+    renderCell(mail.message, mail),
+    new Date(mail.sent_at).toLocaleString()
+  ]);
+
   return (
     <>
     {selectedMail ? (
@@ -120,14 +137,16 @@ const SentSection = () => {
         </section>
       </div>
     ) : (
-      <Table columns={columns} data={sentMails
-        .sort((a, b) => new Date(b.sent_at) - new Date(a.sent_at))
-        .map((mail) => [
-        renderCell(mail.to_email, mail),
-        renderCell(mail.subject, mail),
-        renderCell(mail.message, mail),
-        new Date(mail.sent_at).toLocaleString() 
-      ])} />
+      <section className='sentContainer'>
+        <Table columns={columns} data={ pagedData } />
+        <div className='page'>        
+          <Pagination numPages={Math.ceil(sentMails.length / rowsPerPage)}
+            currentPage={currentPage}
+            onPageChange={({ nextPage })=>{
+              setCurrentPage(Math.min(Math.max(nextPage, 1), totalNumPages))
+            }} />
+        </div>
+      </section>
     )}
     </>
     // <table id="sent">
