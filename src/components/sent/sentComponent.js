@@ -5,10 +5,13 @@ import { Button, SIZE, KIND, SHAPE } from 'baseui/button';
 import { Avatar } from 'baseui/avatar';
 import { Pagination } from 'baseui/pagination';
 
+// Icons 
 import { ChevronLeft } from 'baseui/icon';
 import GetAppIcon from '@material-ui/icons/GetApp';
+import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
+import StarIcon from '@material-ui/icons/Star';
+
 import './style.css';
-import { FormatAlignJustifyOutlined } from '@material-ui/icons';
 
 const SentSection = () => {
   const [sentMails, setSentMails] = useState([]);
@@ -97,6 +100,18 @@ const SentSection = () => {
     new Date(mail.sent_at).toLocaleString()
   ]);
 
+  // Star mail logic
+  const [starredMails, setStarredMails] = useState([]);
+  const toggleStar = (mailId) => {
+    setStarredMails(prev => {
+      if(prev.includes(mailId)) {
+        return prev.filter(id => id !== mailId);
+      }
+      return [...prev, mailId];
+    
+    });
+  };
+
   return (
     <>
     {selectedMail ? (
@@ -105,10 +120,15 @@ const SentSection = () => {
           <Button onClick={()=>setSelectedMail(null)}
             size={SIZE.compact}
             kind={KIND.secondary}> <ChevronLeft size={24}/>
-          </Button>
+          </Button> 
         </section>
         <section className='subject'> 
           <h2>{selectedMail.subject}</h2>
+          <Button onClick={() => toggleStar(selectedMail.id)}
+            kind={KIND.tertiary}
+            size={SIZE.compact}>
+            {starredMails.includes(selectedMail.id) ? <StarIcon/> : <StarBorderOutlinedIcon/>}
+          </Button>
         </section>
         <section className='from-to'>
           <aside>

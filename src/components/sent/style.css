@@ -20,3 +20,14 @@ a {
 .page {
     align-self: center;
 }
+
+.subject {
+    display: flex;
+    align-items: center;
+
+    margin: 1rem 0;
+}
+
+.subject h2 {
+    margin: 0 2rem 0 0;
+}

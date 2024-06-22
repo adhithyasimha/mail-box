@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-const StarredComponent = () => {
+const  StarredComponent= ({starredMails, mails}) => {
   return (
-    <div id="starred">
+    <div>
       <h1>Starred</h1>
     </div>
   );
