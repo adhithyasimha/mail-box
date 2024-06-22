@@ -157,3 +157,19 @@
   }
   
 
+  .attachment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+  
+  .attachment-preview {
+    max-width: 300px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .attachment-button {
+    margin-top: 0.5rem;
+  }
+  
