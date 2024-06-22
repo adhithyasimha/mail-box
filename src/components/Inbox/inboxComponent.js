@@ -145,11 +145,11 @@ function InboxComponent() {
           </section>
           <section className='from-to'>
             <aside>
-              <Avatar name={selectedMail.to_address} 
+              <Avatar name={selectedMail.from_address} 
                 size='scale1200'/>
             </aside>
             <aside className='in-from-to'>
-              <p>{selectedMail.from_address}</p>
+              <p>from: {selectedMail.from_address}</p>
               <p>to: {selectedMail.to_address}</p>
             </aside>
             <aside className='time'>  
