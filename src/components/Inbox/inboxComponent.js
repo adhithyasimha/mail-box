@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { createClient } from "@supabase/supabase-js";
 import { useStyletron } from 'baseui';
 import '../table-design.css';
+
 import { Table } from 'baseui/table-semantic';
 import { Block } from 'baseui/block';
 import { Button, SIZE, KIND } from 'baseui/button';

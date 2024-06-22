@@ -4,6 +4,8 @@ import { Avatar } from "baseui/avatar";
 import { Search } from 'baseui/icon';
 import { Input } from 'baseui/input';
 
+import './animations.js'
+
 const Navbar = () => {
   const [value, setValue] = React.useState('');
   return (
