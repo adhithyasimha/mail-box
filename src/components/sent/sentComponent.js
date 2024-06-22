@@ -31,15 +31,7 @@ const SentSection = () => {
       maxWidth='200px'
       textOverflow='ellipsis'
       overflow='hidden'
-      onClick={() => setSelectedMail(mail)}
-      overrides={{
-        Block: {
-          style: {
-            cursor: 'pointer'
-          }
-        }
-      
-      }}>
+      onClick={() => setSelectedMail(mail)}>
         {value}
     </Block>
   );
@@ -158,7 +150,15 @@ const SentSection = () => {
       </div>
     ) : (
       <section className='sentContainer'>
-        <Table columns={columns} data={ pagedData } />
+        <Table columns={columns} 
+          data={ pagedData } 
+          overrides={{
+            TableBodyRow: {
+              style: () => ({
+                cursor: 'pointer',
+              })
+            }
+          }}/>
         <div className='page'>        
           <Pagination numPages={Math.ceil(sentMails.length / rowsPerPage)}
             currentPage={currentPage}
