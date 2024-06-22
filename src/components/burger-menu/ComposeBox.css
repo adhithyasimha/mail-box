@@ -117,8 +117,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   z-index: 2;
+
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.085);
+}
+
+.notificaiton-msg{
+  position: fixed;
+
+  bottom: 1rem;
+  left: 1rem;
 }
 
 /* Text Area Compose box*/

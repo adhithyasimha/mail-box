@@ -1,8 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './ComposeBox.css';
+
 import { Input } from 'baseui/input';
 import { Spinner } from 'baseui/icon';
 import { Button, KIND, SHAPE, SIZE } from 'baseui/button';
+import { useStyletron } from 'baseui';
+import { Toast, toaster, ToasterContainer } from "baseui/toast";
 
 // icons
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -24,6 +27,10 @@ const ComposeBox = ({ onClose }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [value, setValue] = useState('');
 
+  // Status message to show when the email is sent successfully
+  const [status, setStatus] = useState(null);
+  const [statusMessage, setStatusMessage] = useState('');
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoaded(true);
@@ -43,12 +50,18 @@ const ComposeBox = ({ onClose }) => {
         body: JSON.stringify({ to, from, subject, text: message, fileName, fileContent }),
       });
       if (response.ok) {
-        console.log('Email sent successfully');
+        console.log('Email sent successfully');        
+        setStatus(200);
+        setStatusMessage('Message sent successfully');
         onClose();
       } else {
+        setStatus(response.status);
+        setStatusMessage('failed to send message');
         console.error('Error sending email');
       }
     } catch (error) {
+      setStatus(null);
+      setStatusMessage('An error occurred');
       console.error(error);
     }
   };
@@ -112,6 +125,7 @@ const ComposeBox = ({ onClose }) => {
         setSubject(data.data.subject);
         setMessage(data.data.body);
         setShowPrompt(false); // Close the prompt overlay after receiving the response
+
       } else {
         console.error('Error sending prompt to AI');
       }
@@ -141,11 +155,19 @@ const ComposeBox = ({ onClose }) => {
     };
   }, []);
 
+  // spinner and theme
+  const [css, theme] = useStyletron();
+
+  
   return (
     <>
       {!isLoaded && (
         <div className='loading-notification'>
-          <Spinner $color='#5B91F5' />
+          <Spinner 
+            $borderWidth={theme.sizing.scale100}
+            $size={theme.sizing.scale1600}
+            $color='#5B91F5' />
+            <h1> Loading ...</h1>
         </div>
       )}
       <div className="compose-box">
@@ -243,6 +265,18 @@ const ComposeBox = ({ onClose }) => {
           </div>
         </div>
       </div>
+      {status && (
+        <div className='notificaiton-msg'>
+          <ToasterContainer>
+            <Toast
+              kind={status === 200 ? 'positive' : 'negative'}
+              onClose={() => setStatus(null)}
+              autoHideDuration={3000}>
+              {statusMessage}
+            </Toast>
+          </ToasterContainer>
+        </div>
+      )}
     </>
   );
 };
