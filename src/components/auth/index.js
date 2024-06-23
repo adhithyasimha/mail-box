@@ -1,95 +1,91 @@
 import React, { useState } from 'react';
 import { Button } from 'baseui/button';
 import { Input } from 'baseui/input';
-import { DisplayLarge, DisplayMedium } from 'baseui/typography';
+import { DisplayMedium } from 'baseui/typography';
+import { createClient } from '@supabase/supabase-js';
+import './style.css';
 
-import './style.css'
+function Auth({ onAuthSuccess }) {
+  const Title = 'Welcome to Mail Box';
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-async function handleSubmit(event) {
-        event.preventDefault(); // Prevent the default form submission behavior
-        var email_id = document.getElementById("email-input").value;
-        var password = document.getElementById("password-input").value;
-        console.log("email_id:", email_id);
-        console.log("Password:", password);
+  
+  const supabaseUrl = 'https://djkrtmwwfohyonafoumv.supabase.co';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqa3J0bXd3Zm9oeW9uYWZvdW12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTg1MTY5MjYsImV4cCI6MjAzNDA5MjkyNn0.coE-6KquwZi_KQlc893niek7iuSV-B7U46oNVGt3cp8';
 
-        // // Make sure supabase is defined before using it
-        // const response = await supabase.auth.signInWithPassword({
-        //         email: email_id,
-        //         password: password,
-        // });
-        // const { data, error } = response;
-}
 
-document.addEventListener("DOMContentLoaded", function() {
-        var form = document.getElementById("auth-form");
-        if (form) {
-                form.addEventListener("submit", handleSubmit);
+  const supabase = createClient(supabaseUrl, supabaseKey);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    setError('');
+
+    try {
+      const { data, error } = await supabase
+        .from('users')
+        .select('*')
+        .eq('email', email)
+        .single();
+
+      if (error) throw error;
+
+      if (data) {
+       
+        if (data.password === password) {
+          console.log('Successfully signed in:', data);
+          onAuthSuccess(); // Call this function on successful authentication
         } else {
-                console.error("Element with id auth-form not found.");
+          setError('Invalid email or password');
         }
-});
-
-
-function Auth(){
-    const Title = "Welcome to Mail Box";
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-    async function handleSubmit(event) {
-            event.preventDefault(); // Prevent the default form submission behavior
-            var email_id = document.getElementById("email-input").value;
-            var password = document.getElementById("password-input").value;
-            console.log("email_id:", email_id);
-            console.log("Password:", password);
-    
-            // // Make sure supabase is defined before using it
-            // const response = await supabase.auth.signInWithPassword({
-            //         email: email_id,
-            //         password: password,
-            // });
-            // const { data, error } = response;
+      } else {
+        setError('User not found');
+      }
+    } catch (error) {
+      console.error('Error signing in:', error.message);
+      setError('An error occurred while signing in');
     }
+  }
 
-//design
-
-
-    return(
-        <div className='auth-container'>
-            <section className='visual'></section>
-            <form onSubmit={handleSubmit}>
-                <DisplayMedium marginBottom="scale500">{Title}</DisplayMedium>
-                <Input
-                    type="email"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                    placeholder="Email"
-                    required
-                    />
-                <Input
-                    type="password"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                    placeholder="Password"
-                    required
-                    />
-                <Button 
-                    type="submit"
-                    overrides={{
-                        BaseButton: {
-                            style: ({$theme }) => {
-                                return {
-                                    width: '100%',
-                                    marginTop: '20px',
-                                };
-                            },
-                        },
-                    }}
-                >Login</Button>
-            </form>
-        </div>
-    );
+  return (
+    <div className='auth-container'>
+      <section className='visual'></section>
+      <form onSubmit={handleSubmit}>
+        <DisplayMedium marginBottom='scale500'>{Title}</DisplayMedium>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        <Input
+          type='email'
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          placeholder='Email'
+          required
+        />
+        <Input
+          type='password'
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+          placeholder='Password'
+          required
+        />
+        <Button
+          type='submit'
+          overrides={{
+            BaseButton: {
+              style: () => {
+                return {
+                  width: '100%',
+                  marginTop: '20px',
+                };
+              },
+            },
+          }}
+        >
+          Login
+        </Button>
+      </form>
+    </div>
+  );
 }
 
-
-export default Auth
-
+export default Auth;
