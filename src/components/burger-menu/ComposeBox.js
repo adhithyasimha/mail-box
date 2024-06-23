@@ -55,6 +55,7 @@ const ComposeBox = ({ onClose }) => {
         console.log(data.message);
         setStatus(200);
         setStatusMessage(data.message);
+        
         onClose();
       } else {
         setStatus(response.status);
