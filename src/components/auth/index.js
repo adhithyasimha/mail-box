@@ -6,7 +6,7 @@ import { createClient } from '@supabase/supabase-js';
 import './style.css';
 
 function Auth({ onAuthSuccess }) {
-  const Title = 'Welcome to Mail Box';
+  const Title = 'Welcome to Mail Box ✉️';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
