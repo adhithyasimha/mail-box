@@ -59,8 +59,7 @@ const BurgerMenu = () => {
   };
   return (
     <section className="main-navigation">
-      <aside className="burgerMenu" 
-            ref={menuRef}>
+      <aside className="burgerMenu" >
         <div className='composeSec'>
           <Button
             startEnhancer={() => <AddIcon/>}
