@@ -47,29 +47,36 @@ app.post('/api/send-email', async (req, res) => {
   };
 
   try {
+    // Send email
     await transporter.sendMail(message);
+    console.log('Email sent successfully');
 
     // Get the current time
     const sentAt = new Date().toISOString();
 
     // Insert email data into Supabase database
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('sentMails')
-      .insert([{ to_email: to, from_email: 'adhithya@adhithya.tech', subject, message: text, file_name: fileName || null, file_content: fileContent || null, sent_at: sentAt }]);
+      .insert([{ 
+        to_email: to, 
+        from_email: 'adhithya@adhithya.tech', 
+        subject, 
+        message: text, 
+        file_name: fileName || null, 
+        file_content: fileContent || null, 
+        sent_at: sentAt 
+      }]);
 
     if (error) {
-      console.error('Supabase insert error:', error);
-      res.status(500).send({ error: 'Error inserting email into database', details: error });
-    } else if (data && data.length > 0) {
-      console.log(`Email inserted into database with ID: ${data[0].id}`);
-      res.send('Email sent successfully');
+      console.error('Supabase insert error:', JSON.stringify(error, null, 2));
+      res.status(200).send({ success: true, message: 'Email sent successfully, but failed to log in database', error: error });
     } else {
-      console.error('No data returned from Supabase insert operation');
-      res.status(500).send('Error inserting email into database');
+      console.log('Email inserted into database successfully');
+      res.status(200).send({ success: true, message: 'Email sent and logged successfully' });
     }
   } catch (error) {
     console.error('Error sending email:', error);
-    res.status(500).send({ error: 'Error sending email', details: error });
+    res.status(500).send({ success: false, error: 'Error sending email', details: error });
   }
 });
 

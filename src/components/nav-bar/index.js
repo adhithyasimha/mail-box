@@ -31,7 +31,7 @@ const Navbar = () => {
 
     </div>
     <div className='logo-text'>
-      Mail Box 
+      Mail Box
     </div>
   </div>
   <div className="search-bar">

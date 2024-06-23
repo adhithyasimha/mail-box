@@ -49,23 +49,24 @@ const ComposeBox = ({ onClose }) => {
         },
         body: JSON.stringify({ to, from, subject, text: message, fileName, fileContent }),
       });
-      if (response.ok) {
-        console.log('Email sent successfully');        
+      const data = await response.json();
+      
+      if (data.success) {
+        console.log(data.message);
         setStatus(200);
-        setStatusMessage('Message sent successfully');
+        setStatusMessage(data.message);
         onClose();
       } else {
         setStatus(response.status);
-        setStatusMessage('failed to send message');
-        console.error('Error sending email');
+        setStatusMessage(data.error || 'Failed to send message');
+        console.error('Error sending email:', data.error);
       }
     } catch (error) {
       setStatus(null);
       setStatusMessage('An error occurred');
-      console.error(error);
+      console.error('Error in handleSubmit:', error);
     }
   };
-
   const handleSendButtonClick = () => {
     handleSubmit();
   };
@@ -77,13 +78,13 @@ const ComposeBox = ({ onClose }) => {
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
     if (file) {
-      setIsLoaded(true);
+      setIsLoaded(false);
       const reader = new FileReader();
       reader.onload = async (e) => {
         const fileContent = e.target.result.split(',')[1]; // Remove the data URL prefix
         setFileName(file.name);
         setFileContent(fileContent);
-        setIsLoaded(false);
+        setIsLoaded(true);
       };
       reader.readAsDataURL(file);
     }
@@ -99,7 +100,9 @@ const ComposeBox = ({ onClose }) => {
     setSubject('');
     setFileName('');
     setFileContent('');
-    document.querySelectorAll('.compose-input').forEach(input => input.value = '');
+    setShowPrompt(false);
+    setIsItalic(false);
+    document.querySelectorAll('.compose-input, .compose-textarea').forEach(input => input.value = '');
   };
 
   const handleMessageChange = (event) => {
@@ -158,7 +161,6 @@ const ComposeBox = ({ onClose }) => {
   // spinner and theme
   const [css, theme] = useStyletron();
 
-  
   return (
     <>
       {!isLoaded && (
@@ -266,7 +268,7 @@ const ComposeBox = ({ onClose }) => {
         </div>
       </div>
       {status && (
-        <div className='notificaiton-msg'>
+        <div className='notification-msg'>
           <ToasterContainer>
             <Toast
               kind={status === 200 ? 'positive' : 'negative'}

@@ -128,7 +128,7 @@ const SentSection = () => {
               size='scale1200'/>
           </aside>
           <aside className='in-from-to'>
-            <p>{selectedMail.from_email}</p>
+            <p>from : {selectedMail.from_email}</p>
             <p>to : {selectedMail.to_email}</p>
           </aside>
           <aside className='time'>  
