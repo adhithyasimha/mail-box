@@ -57,7 +57,7 @@ function InboxComponent() {
 
   // Pagination 
   const [currentPage, setCurrentPage] = useState(1);
-  const rowsPerPage = 9;
+  const rowsPerPage = 11;
   const totalNumPages = Math.ceil(inboxMails.length / rowsPerPage);
 
   const pagedData = inboxMails

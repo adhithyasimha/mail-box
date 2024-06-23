@@ -8,14 +8,29 @@ import { Navigation } from "baseui/side-navigation";
 
 import './ComposeBox.css';
 import ComposeBox from './ComposeBox';
-import InboxComponent from '../Inbox/inboxComponent.js';
+import InboxComponent from '../inbox/inboxComponent.js';
 import StarredComponent from '../starred/starredComponent.js';
 import SentComponent from '../sent/sentComponent.js';
 import DraftsComponent from '../drafts/draftsComponent.js';
 
+// GSAP animation
+import { useEffect } from 'react';
+import { useRef } from 'react';
+import gsap from 'gsap';
+
 const BurgerMenu = () => {
   const [activeItemId, setActiveItemId] = React.useState("#inbox");
   const [isComposeOpen, setIsComposeOpen] = React.useState(false);
+
+  const menuRef = useRef(null);
+  useEffect(() => {
+    gsap.fromTo(
+      menuRef.current, 
+      { x: -50 }, 
+      { x: 0, duration: 1}
+    );
+  }, []);
+
   const nav = [
     {
       title: 'Inbox',
@@ -44,7 +59,8 @@ const BurgerMenu = () => {
   };
   return (
     <section className="main-navigation">
-      <aside className="burgerMenu">
+      <aside className="burgerMenu" 
+            ref={menuRef}>
         <div className='composeSec'>
           <Button
             startEnhancer={() => <AddIcon/>}
@@ -75,7 +91,6 @@ const BurgerMenu = () => {
               setActiveItemId(item.itemId);
               console.log(item.itemId);
             }}
-
           />
         </div>
 

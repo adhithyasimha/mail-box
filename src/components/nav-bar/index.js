@@ -4,14 +4,32 @@ import { Avatar } from "baseui/avatar";
 import { Search } from 'baseui/icon';
 import { Input } from 'baseui/input';
 
-import './animations.js'
+// GSAP Animation 
+import { useEffect } from 'react';
+import { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+
+
 
 const Navbar = () => {
   const [value, setValue] = React.useState('');
+
+  // GSAP Animation
+  const logoRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      logoRef.current,
+      { y: -30 },
+      { y: 0, duration: 1 }
+    );
+  }, []);
+
   return (
 
-<nav className="navbar">
-  <div className="navbar-left logo">
+<nav className="navbar" ref={logoRef}>
+  <div className="navbar-left logo" >
     {/* aspect ration is 1:1.2112 */}
     <div className='logo-icon'>
     <svg width="50" height="203" viewBox="0 0 200 203" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -76,4 +94,4 @@ const Navbar = () => {
 );
 };
 
-export default Navbar;
+export default Navbar ;

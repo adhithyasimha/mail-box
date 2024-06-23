@@ -79,7 +79,7 @@ const SentSection = () => {
 
   // pagination 
   const [currentPage, setCurrentPage] = React.useState(1);
-  const rowsPerPage = 9;
+  const rowsPerPage = 11;
   const totalNumPages = Math.ceil(sentMails.length / rowsPerPage);
 
   const pagedData = sentMails
