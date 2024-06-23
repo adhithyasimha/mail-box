@@ -22,10 +22,10 @@ const BurgerMenu = () => {
   const [activeItemId, setActiveItemId] = React.useState("#inbox");
   const [isComposeOpen, setIsComposeOpen] = React.useState(false);
 
-  const menuRef = useRef(null);
+  const compoRef = useRef(null);
   useEffect(() => {
     gsap.fromTo(
-      menuRef.current, 
+      compoRef.current, 
       { x: -50 }, 
       { x: 0, duration: 1}
     );
@@ -60,7 +60,7 @@ const BurgerMenu = () => {
   return (
     <section className="main-navigation">
       <aside className="burgerMenu" >
-        <div className='composeSec'>
+        <div className='composeSec' ref={compoRef}>
           <Button
             startEnhancer={() => <AddIcon/>}
             overrides={{

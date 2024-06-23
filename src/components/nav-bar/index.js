@@ -21,18 +21,18 @@ const Navbar = () => {
   useEffect(() => {
     gsap.fromTo(
       logoRef.current,
-      { x: -30 },
-      { x: 0, duration: 1 }
+      { y: -30 },
+      { y: 0, duration: 1 }
     );
   }, []);
 
   return (
 
 <nav className="navbar">
-  <div className="navbar-left logo" >
+  <div className="navbar-left logo" ref={logoRef}>
     {/* aspect ration is 1:1.2112 */}
-    <div className='logo-icon' ref={logoRef}>
-    <svg width="50" height="203" viewBox="0 0 200 203" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div className='logo-icon' >
+    <svg width="50" height="50" viewBox="0 0 200 203" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_163_237)">
 <path d="M100.249 21L21 70.3226L100.249 120L180 70.3226L100.249 21Z" stroke="#0F0F0E"/>
 <path d="M100.385 48L64 70.4194L100.385 93L137 70.4194L100.385 48Z" stroke="#0F0F0E"/>
