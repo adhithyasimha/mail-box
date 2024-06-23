@@ -31,6 +31,8 @@ const BurgerMenu = () => {
     );
   }, []);
 
+
+
   const nav = [
     {
       title: 'Inbox',
@@ -59,8 +61,8 @@ const BurgerMenu = () => {
   };
   return (
     <section className="main-navigation">
-      <aside className="burgerMenu" >
-        <div className='composeSec' ref={compoRef}>
+      <aside className="burgerMenu" ref={compoRef} >
+        <div className='composeSec' >
           <Button
             startEnhancer={() => <AddIcon/>}
             overrides={{
@@ -82,7 +84,8 @@ const BurgerMenu = () => {
             Compose
           </Button>
         </div>
-        <div className='menuSec'>
+        <div className='menuSec'
+          ref={compoRef}>
           <Navigation
             items={nav}
             activeItemId={activeItemId}
