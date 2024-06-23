@@ -61,8 +61,8 @@ const BurgerMenu = () => {
   };
   return (
     <section className="main-navigation">
-      <aside className="burgerMenu" ref={compoRef} >
-        <div className='composeSec' >
+      <aside className="burgerMenu" >
+        <div className='composeSec' ref={compoRef}>
           <Button
             startEnhancer={() => <AddIcon/>}
             overrides={{

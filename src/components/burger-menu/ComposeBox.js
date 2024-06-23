@@ -15,6 +15,9 @@ import { ArrowRight } from 'baseui/icon';
 import CloseIcon from '@material-ui/icons/Close';
 import SendIcon from '@material-ui/icons/Send';
 
+// GSAP animation
+import gsap from 'gsap';  
+
 const ComposeBox = ({ onClose }) => {
   const fileInputRef = useRef(null);
   const [to, setTo] = useState('');
@@ -162,6 +165,23 @@ const ComposeBox = ({ onClose }) => {
   // spinner and theme
   const [css, theme] = useStyletron();
 
+  // GSAP animation   
+  const boxRef = useRef(null);
+  const toastRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      boxRef.current, 
+      { scale: 0.8, x: 10}, 
+      { scale: 1, x: 0, duration: 1},
+
+      toastRef.current,
+      {x: -10},
+      {x: 0, duration: 1}
+    );
+  }, []);
+
+
   return (
     <>
       {!isLoaded && (
@@ -173,7 +193,7 @@ const ComposeBox = ({ onClose }) => {
             <h1> Loading ...</h1>
         </div>
       )}
-      <div className="compose-box">
+      <div className="compose-box" ref={boxRef}>
         <div className="compose-header">
           <span>New Message</span>
           <Button className="compose-close"
@@ -269,7 +289,8 @@ const ComposeBox = ({ onClose }) => {
         </div>
       </div>
       {status && (
-        <div className='notification-msg'>
+        <div className='notification-msg'
+         ref={toastRef}>
           <ToasterContainer>
             <Toast
               kind={status === 200 ? 'positive' : 'negative'}

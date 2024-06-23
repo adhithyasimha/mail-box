@@ -122,7 +122,7 @@
   z-index: 2;
 
   font-size: 1rem;
-  background-color: rgba(0, 0, 0, 0.085);
+  background-color: rgba(0, 0, 0, 0.016);
 }
 
 .notificaiton-msg{
@@ -154,4 +154,13 @@
 .space {
   width: 20px;
   aspect-ratio: 1/1;
+}
+
+.notificaiton-msg {
+
+  height: 100px;
+
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
 }
