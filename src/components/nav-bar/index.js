@@ -86,6 +86,7 @@ const Navbar = () => {
               ':focus': {
                 borderColor: $theme.colors.primaryA,
               },
+              fontFamily: 'Uber Move',
             }
           }
         }

@@ -82,6 +82,7 @@ const BurgerMenu = () => {
                       backgroundColor: $theme.colors.primaryA,
                     },
                     fontSize: '1.2rem',
+                    fontFamily: 'Uber Move',
                   };
                 },
               },
