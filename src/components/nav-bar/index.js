@@ -17,6 +17,8 @@ const Navbar = () => {
 
   // GSAP Animation
   const logoRef = useRef(null);
+  const avatarRef = useRef(null);
+  const searchRef = useRef(null);
 
   useEffect(() => {
     gsap.fromTo(
@@ -24,6 +26,16 @@ const Navbar = () => {
       { y: -30 },
       { y: 0, duration: 1 }
     );
+    gsap.fromTo(
+      avatarRef.current,
+      { x: 30 }, 
+      { x: 0, duration: 2}
+    );
+    gsap.fromTo(
+      searchRef.current,
+      { width: 0 },
+      { width: 500, duration: 1.2}
+    )
   }, []);
 
   return (
@@ -52,7 +64,8 @@ const Navbar = () => {
       Mail Box
     </div>
   </div>
-  <div className="search-bar">
+  <div className="search-bar"
+    ref={searchRef}>
     <Input
       value={value}
       onChange={event => setValue(event.currentTarget.value)}
@@ -83,7 +96,8 @@ const Navbar = () => {
       </li>
     </ul>
   </div>
-  <div className="navbar-right">
+  <div className="navbar-right" 
+    ref={avatarRef}>
     <Avatar 
       name="Adolf Hitler"
       size="scale1000"

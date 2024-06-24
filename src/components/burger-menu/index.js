@@ -23,12 +23,19 @@ const BurgerMenu = () => {
   const [isComposeOpen, setIsComposeOpen] = React.useState(false);
 
   const compoRef = useRef(null);
+  const menuRef = useRef(null);
+
   useEffect(() => {
     gsap.fromTo(
       compoRef.current, 
       { x: -50 }, 
-      { x: 0, duration: 1}
+      { x: 0, duration: 1},
     );
+    gsap.fromTo(
+      menuRef.current,
+      { x: -50 },
+      { x: 0, duration: 1.5},
+    )
   }, []);
 
 
@@ -61,8 +68,8 @@ const BurgerMenu = () => {
   };
   return (
     <section className="main-navigation">
-      <aside className="burgerMenu" >
-        <div className='composeSec' ref={compoRef}>
+      <aside className="burgerMenu">
+        <div className='composeSec' ref={compoRef} >
           <Button
             startEnhancer={() => <AddIcon/>}
             overrides={{
@@ -85,7 +92,7 @@ const BurgerMenu = () => {
           </Button>
         </div>
         <div className='menuSec'
-          ref={compoRef}>
+          ref={menuRef}>
           <Navigation
             items={nav}
             activeItemId={activeItemId}
