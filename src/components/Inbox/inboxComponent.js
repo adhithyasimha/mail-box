@@ -95,7 +95,9 @@ function InboxComponent() {
       'jpeg': 'image/jpeg',
       'png': 'image/png',
       'mp3': 'audio/mpeg',
-      'mp4': 'video/mp4'
+      'mp4': 'video/mp4',
+      'webm': 'video/webm',
+      'ogg': 'video/ogg'
     };
 
     const fileType = fileTypes[fileExtension];
@@ -113,6 +115,12 @@ function InboxComponent() {
               <source src={`data:${fileType};base64,${fileContent}`} type={fileType} />
               Your browser does not support the audio element.
             </audio>
+          )}
+          {fileType.startsWith('video') && (
+            <video controls className="attachment-preview">
+              <source src={`data:${fileType};base64,${fileContent}`} type={fileType} />
+              Your browser does not support the video tag.
+            </video>
           )}
           <Button startEnhancer={() => <GetAppIcon />} className="attachment-button">
             <a href={`data:${fileType};base64,${fileContent}`} 

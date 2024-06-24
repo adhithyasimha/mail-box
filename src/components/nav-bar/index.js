@@ -78,7 +78,7 @@ const Navbar = () => {
         Input: {
           style: ({ $theme }) => {
             return {
-              fontFamily: 'Uber Move',
+              fontFamily: 'uberMoveText, sans-serif',
             }
           }
         }

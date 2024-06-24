@@ -8,7 +8,7 @@ import { Navigation } from "baseui/side-navigation";
 
 import './ComposeBox.css';
 import ComposeBox from './ComposeBox';
-import InboxComponent from '../inbox/inboxComponent.js';
+import InboxComponent from '../Inbox/inboxComponent.js';
 import StarredComponent from '../starred/starredComponent.js';
 import SentComponent from '../sent/sentComponent.js';
 import DraftsComponent from '../drafts/draftsComponent.js';
@@ -83,7 +83,7 @@ const BurgerMenu = () => {
                       backgroundColor: $theme.colors.primaryA,
                     },
                     fontSize: '1.2rem',
-                    fontFamily: 'Uber Move',
+                    fontFamily: 'Uber Move Text, sans-serif',
                   };
                 },
               },

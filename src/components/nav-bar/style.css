@@ -1,6 +1,6 @@
 .navbar {
   color: var(--black-900);
-  font-family: 'Uber Move';
+  font-family: 'Uber Move', sans-serif, -apple-system, system-ui;
   
   width: inherit;
 
