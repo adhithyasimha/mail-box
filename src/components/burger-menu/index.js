@@ -45,18 +45,18 @@ const BurgerMenu = () => {
       title: 'Inbox',
       itemId: '#inbox',
     },
-    {
-      title: 'Starred',
-      itemId: '#starred',
-    },
+    // {
+    //   title: 'Starred',
+    //   itemId: '#starred',
+    // },
     {
       title: 'Sent',
       itemId: '#sent',
     },
-    {
-      title: 'Drafts',
-      itemId: '#drafts',
-    }
+    // {
+    //   title: 'Drafts',
+    //   itemId: '#drafts',
+    // }
   ];
 
   const composeButtonClickHandler = () => {
@@ -112,12 +112,12 @@ const BurgerMenu = () => {
             switch(activeItemId){
               case '#inbox':
                 return <InboxComponent />;
-              case '#starred':
-                return <StarredComponent />;
+              // case '#starred':
+              //   return <StarredComponent />;
               case '#sent':
                 return <SentComponent />;
-              case '#drafts':
-                return <DraftsComponent />;
+              // case '#drafts':
+              //   return <DraftsComponent />;
               default:
                 return <InboxComponent />;
             }

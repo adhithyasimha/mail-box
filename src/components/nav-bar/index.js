@@ -31,13 +31,13 @@ const Navbar = () => {
     );
     gsap.fromTo(
       avatarRef.current,
-      { x: 30 }, 
+      { x: 50 }, 
       { x: 0, duration: 2}
     );
     gsap.fromTo(
       searchRef.current,
       { width: 0 },
-      { width: 500, duration: 1.2}
+      { width: 500, duration: 1.6}
     )
   }, []);
 
