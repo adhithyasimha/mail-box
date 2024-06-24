@@ -1,18 +1,21 @@
 @font-face {
-  font-family: 'UberMove';
-  src: url('./fonts/UberMoveBold.otf') format('otf'),
-       url('./fonts/UberMoveMedium.otf') format('otf'),
-       url('./fonts/UberMoveMono-Medium.ttf') format('ttf'),
-       url('./fonts/UberMoveMono-Regular.ttf') format('ttf');
+  font-family: 'Uber Move';
+  src: url('./fonts/Uber-Move/UberMoveBold.otf') format('otf');
+  font-weight: bold;
+}
 
+@font-face {
+  font-family: 'Uber Move';
+  src: url('./fonts/Uber-Move/UberMoveMedium.otf') format('otf');
   font-weight: normal;
-  font-style: normal;
 }
 
 * {
-  font-family: 'UberMove',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Uber Move',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+
+  font-weight: normal;
 }
 
 body {

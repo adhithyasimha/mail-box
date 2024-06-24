@@ -1,5 +1,8 @@
 import React from 'react';
+
 import './style.css';
+import '../../index.css'
+
 import { Avatar } from "baseui/avatar";
 import { Search } from 'baseui/icon';
 import { Input } from 'baseui/input';

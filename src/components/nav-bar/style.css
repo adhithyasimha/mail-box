@@ -1,6 +1,6 @@
 .navbar {
   color: var(--black-900);
-  font-family: 'uber move', sans-serif, -apple-system, system-ui;
+  font-family: 'Uber Move';
   
   width: inherit;
 
@@ -26,6 +26,9 @@
 
   margin-bottom: .5rem;
   margin-left: .5rem;
+
+  font-family: 'Uber Move';
+  font-weight: bold;
 }
 
 .search-bar {
