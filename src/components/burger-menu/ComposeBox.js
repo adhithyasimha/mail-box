@@ -289,8 +289,7 @@ const ComposeBox = ({ onClose }) => {
         </div>
       </div>
       {status && (
-        <div className='notification-msg'
-         ref={toastRef}>
+        <div className='msg'>
           <ToasterContainer>
             <Toast
               kind={status === 200 ? 'positive' : 'negative'}

@@ -5,7 +5,7 @@ import '../../index.css'
 
 import { Avatar } from "baseui/avatar";
 import { Search } from 'baseui/icon';
-import { Input } from 'baseui/input';
+import { StatefulInput } from 'baseui/input';
 
 // GSAP Animation 
 import { useEffect } from 'react';
@@ -69,23 +69,15 @@ const Navbar = () => {
   </div>
   <div className="search-bar"
     ref={searchRef}>
-    <Input
-      value={value}
-      onChange={event => setValue(event.currentTarget.value)}
+    <StatefulInput
       startEnhancer={<Search size={24} />}
       placeholder="Search for mail"
       clearOnEscape
+
       overrides={{
         Input: {
           style: ({ $theme }) => {
             return {
-              borderColor: $theme.colors.mono300,
-              ':hover': {
-                borderColor: $theme.colors.primaryA,
-              },
-              ':focus': {
-                borderColor: $theme.colors.primaryA,
-              },
               fontFamily: 'Uber Move',
             }
           }

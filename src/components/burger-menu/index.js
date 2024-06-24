@@ -34,7 +34,7 @@ const BurgerMenu = () => {
     gsap.fromTo(
       menuRef.current,
       { x: -50 },
-      { x: 0, duration: 1.5},
+      { x: 0, delay: .2, duration: 1},
     )
   }, []);
 
@@ -69,7 +69,8 @@ const BurgerMenu = () => {
   return (
     <section className="main-navigation">
       <aside className="burgerMenu">
-        <div className='composeSec' ref={compoRef} >
+        <div className='composeSec'
+        ref={compoRef}>
           <Button
             startEnhancer={() => <AddIcon/>}
             overrides={{
