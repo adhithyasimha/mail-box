@@ -3,9 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-
-    padding-bottom: 1rem;
-    overflow: hidden;
 }
 
 .from-to {
@@ -34,5 +31,4 @@ p {
 
 .message {
     width: 95%;
-    padding: 10px 0;
 }

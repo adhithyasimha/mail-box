@@ -23,8 +23,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  overflow: hidden;
-
+  --black-700: #2d2d2d;
   --black-800: #191918;
   --black-900: #0e0e0f;
 
