@@ -5,6 +5,7 @@ a {
 
 .attSec {
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -13,7 +14,6 @@ a {
     flex-direction: column;
     align-items: stretch;
     justify-content: space-between;
-
     height: 85vh;
 }
 
@@ -24,7 +24,6 @@ a {
 .subject {
     display: flex;
     align-items: center;
-
     margin: 1rem 0;
 }
 
