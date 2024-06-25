@@ -8,43 +8,36 @@ import { Search } from 'baseui/icon';
 import { StatefulInput } from 'baseui/input';
 
 // GSAP Animation 
-import { useEffect } from 'react';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-
-
 
 const Navbar = () => {
   const [value, setValue] = React.useState('');
 
   // GSAP Animation
-  const logoRef = useRef(null);
   const avatarRef = useRef(null);
-  const searchRef = useRef(null);
+  const navbarRef = useRef(null); 
+
+  const width = window.screen.width;
 
   useEffect(() => {
-    gsap.fromTo(
-      logoRef.current,
-      { y: -30 },
-      { y: 0, duration: 1 }
-    );
     gsap.fromTo(
       avatarRef.current,
       { x: 50 }, 
       { x: 0, duration: 2}
     );
     gsap.fromTo(
-      searchRef.current,
-      { width: 0 },
-      { width: 500, duration: 1.6}
+      navbarRef.current,
+      { width: 700 },
+      { width: width, duration: 2.6}
     )
   }, []);
 
   return (
 
-<nav className="navbar">
-  <div className="navbar-left logo" ref={logoRef}>
+<nav className="navbar"
+  ref={navbarRef}>
+  <div className="navbar-left logo" >
     {/* aspect ration is 1:1.2112 */}
     <div className='logo-icon' >
     <svg width="50" height="50" viewBox="0 0 200 203" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -67,8 +60,7 @@ const Navbar = () => {
       Mail Box
     </div>
   </div>
-  <div className="search-bar"
-    ref={searchRef}>
+  <div className="search-bar">
     <StatefulInput
       startEnhancer={<Search size={24} />}
       placeholder="Search for mail"
@@ -78,7 +70,7 @@ const Navbar = () => {
         Input: {
           style: ({ $theme }) => {
             return {
-              fontFamily: 'uberMoveText, sans-serif',
+              fontFamily: 'Uber Move, sans-serif',
             }
           }
         }
