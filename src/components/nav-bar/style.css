@@ -1,21 +1,24 @@
 .navbar {
   color: var(--black-900);
   font-family: 'Uber Move', sans-serif, -apple-system, system-ui;
-  
-  width: inherit;
-
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .navbar-center .nav-links {
   list-style-type: none;
+  display: flex;
+  align-items: center;
 }
-  
+
 .navbar-center .nav-links a {
   text-decoration: none;
   cursor: pointer;
+  padding: 0 1rem;
 }
 
 .logo-text {
@@ -23,21 +26,28 @@
   font-weight: bold;
   text-decoration: none;
   color: var(--black-800);
-
-  margin-left: .5rem;
-  font-weight: bold;
+  margin-left: 1rem;
 }
 
 .search-bar {
   width: 50%;
+  max-width: 600px;
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .logo-icon {
-  margin-top: .5rem;
+  margin-top: 0;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right button {
+  margin-right: 1rem;
 }
