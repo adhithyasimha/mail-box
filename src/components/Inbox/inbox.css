@@ -1,16 +1,9 @@
-.InboxContainer {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background-color: var(--white);
-  color: var(--black-900);
-  transition: all 0.3s ease-in-out;
-}
 
+/* 
 .InboxContainer.dark {
   background-color: var(--black);
   color: var(--white);
-}
+} */
 
 .navbar {
   color: var(--black-900);
@@ -37,14 +30,14 @@
   margin-right: 20px;
 }
 
-.search-bar {
+/* .search-bar {
   width: 50%;
   display: flex;
   align-items: center;
   padding: 0 10px;
   border-radius: 10px;
   background-color: var(--black-100);
-}
+} */
 
 .search-bar input {
   width: 100%;
@@ -116,7 +109,7 @@
   flex-direction: column;
   padding: 20px;
 }
-
+/* 
 .MailItem {
   width: 100%;
   height: 100px;
@@ -127,25 +120,25 @@
   margin-bottom: 10px;
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
-}
-
+} */
+/* 
 .MailItem:hover {
   background-color: var(--black-200);
-}
+} */
 
-.MailItemFrom {
+/* .MailItemFrom {
   width: 100%;
   display: flex;
   flex-direction: column;
   margin-right: 20px;
-}
-
+} */
+/* 
 .MailItemFromName {
   font-size: 1.1rem;
   color: var(--black-800);
-}
+} */
 
-.MailItemFromEmail {
+/* .MailItemFromEmail {
   font-size: 0.9rem;
   color: var(--black-600);
 }
@@ -154,7 +147,7 @@
   font-size: 1.1rem;
   color: var(--black-800);
   margin-top: 10px;
-}
+} */
 
 .attachment-container {
   display: flex;
