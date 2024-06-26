@@ -16,6 +16,8 @@ import './style.css';
 const SentSection = () => {
   const [sentMails, setSentMails] = useState([]);
   const [selectedMail, setSelectedMail] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [starredMails, setStarredMails] = useState([]);
 
   useEffect(() => {
     fetch('https://mailbox-server-rho.vercel.app/api/supabase-sent')
@@ -37,43 +39,71 @@ const SentSection = () => {
   );
 
   const renderAttachment = (fileName, fileContent) => {
-    const fileExtension = fileName.split('.').pop();
+    const fileExtension = fileName.split('.').pop().toLowerCase();
     const fileTypes = {
-      'jpg': 'image/jpg',
+      'jpg': 'image/jpeg',
       'jpeg': 'image/jpeg',
       'png': 'image/png',
+      'gif': 'image/gif',
       'mp3': 'audio/mpeg',
-      'mp4': 'video/mp4'
+      'mp4': 'video/mp4',
+      'pdf': 'application/pdf',
+      'doc': 'application/msword',
+      'docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      'xls': 'application/vnd.ms-excel',
+      'xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      'ppt': 'application/vnd.ms-powerpoint',
+      'pptx': 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
     };
 
-    const fileType = fileTypes[fileExtension];
+    const fileType = fileTypes[fileExtension] || 'application/octet-stream';
 
-    if (fileType) {
-      return (
-        <div className="attSec">
-          {fileType.startsWith('image') && (
-            <img src={`data:${fileType};base64,${fileContent}`}
-              alt={fileName}
-              style={{ maxWidth: '300px', marginBottom: '1rem' }} />
-          )}
-          {fileType.startsWith('audio') && (
-            <audio controls style={{ marginBottom: '1rem' }}>
-              <source src={`data:${fileType};base64,${fileContent}`} type={fileType} />
-              Your browser does not support the audio element.
-            </audio>
-          )}
-          <Button startEnhancer={() => <GetAppIcon />}>
-            <a href={`data:${fileType};base64,${fileContent}`} download={fileName}>
-              {fileName}
-            </a>
-          </Button>
-        </div>
-      );
-    }
-    return null;
+    return (
+      <div className="attSec">
+        {fileType.startsWith('image') && (
+          <img src={`data:${fileType};base64,${fileContent}`}
+            alt={fileName}
+            style={{ maxWidth: '300px', marginBottom: '1rem' }} />
+        )}
+        {fileType.startsWith('audio') && (
+          <audio controls style={{ marginBottom: '1rem' }}>
+            <source src={`data:${fileType};base64,${fileContent}`} type={fileType} />
+            Your browser does not support the audio element.
+          </audio>
+        )}
+        {fileType.startsWith('video') && (
+          <video controls style={{ maxWidth: '300px', marginBottom: '1rem' }}>
+            <source src={`data:${fileType};base64,${fileContent}`} type={fileType} />
+            Your browser does not support the video element.
+          </video>
+        )}
+        {fileType === 'application/pdf' && (
+          <iframe
+            src={`data:${fileType};base64,${fileContent}`}
+            width="100%"
+            height="500px"
+            style={{ border: 'none', marginBottom: '1rem' }}
+          >
+            This browser does not support PDFs. Please download the PDF to view it.
+          </iframe>
+        )}
+        {/* Download button for all file types */}
+        <Button startEnhancer={() => <GetAppIcon />}>
+          <a href={`data:${fileType};base64,${fileContent}`} download={fileName}>
+            Download {fileName}
+          </a>
+        </Button>
+        {/* Message for file types that can't be previewed */}
+        {!fileType.startsWith('image') && 
+         !fileType.startsWith('audio') && 
+         !fileType.startsWith('video') && 
+         fileType !== 'application/pdf' && (
+          <p>Preview not available for {fileExtension.toUpperCase()} files. Please download to view.</p>
+        )}
+      </div>
+    );
   };
 
-  const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 11;
   const totalNumPages = Math.ceil(sentMails.length / rowsPerPage);
 
@@ -87,7 +117,6 @@ const SentSection = () => {
       new Date(mail.sent_at).toLocaleString()
     ]);
 
-  const [starredMails, setStarredMails] = useState([]);
   const toggleStar = (mailId) => {
     setStarredMails(prev => {
       if (prev.includes(mailId)) {
