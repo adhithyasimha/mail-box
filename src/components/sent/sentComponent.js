@@ -18,7 +18,7 @@ const SentSection = () => {
   const [selectedMail, setSelectedMail] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/supabase-sent')
+    fetch('https://mailbox-server-rho.vercel.app/api/supabase-sent')
       .then(response => response.json())
       .then(data => setSentMails(data))
       .catch(error => console.error('Error fetching sent emails:', error));
