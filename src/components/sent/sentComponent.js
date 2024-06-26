@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from 'react';
 import { Table } from 'baseui/table-semantic';
 import { Block } from 'baseui/block';
@@ -22,7 +20,7 @@ const SentSection = () => {
   const [starredMails, setStarredMails] = useState([]);
 
   useEffect(() => {
-    fetch('https://mailbox-server-rho.vercel.app/api/supabase-sent')
+    fetch('https://mailbox-lemon.vercel.app/api/supabase-sent')
       .then(response => response.json())
       .then(data => setSentMails(data))
       .catch(error => console.error('Error fetching sent emails:', error));
@@ -197,5 +195,3 @@ const SentSection = () => {
 }
 
 export default SentSection;
-
-
