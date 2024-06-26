@@ -16,6 +16,7 @@
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "node-fetch": "^3.3.2",
-    "nodemailer": "^6.9.13"
+    "nodemailer": "^6.9.13",
+    "vercel": "^34.2.8"
   }
 }
