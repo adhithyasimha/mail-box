@@ -9,11 +9,11 @@ const app = express();
 app.use(bodyParser.json({ limit: '50mb' }));
 
 // CORS middleware
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'https://mailbox-lemon.vercel.app' }));
 
 // CORS headers to every response
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Origin', 'https://mailbox-lemon.vercel.app');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
