@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useState } from 'react';
 import { createClient } from "@supabase/supabase-js";
 import { useStyletron } from 'baseui';
@@ -97,7 +99,12 @@ function InboxComponent() {
       'mp3': 'audio/mpeg',
       'mp4': 'video/mp4',
       'webm': 'video/webm',
-      'ogg': 'video/ogg'
+      'ogg': 'video/ogg',
+      'pdf': 'application/pdf',
+      'doc': 'application/msword',
+      'docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      'xls': 'application/vnd.ms-excel',
+      'xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     };
 
     const fileType = fileTypes[fileExtension];
@@ -121,6 +128,23 @@ function InboxComponent() {
               <source src={`data:${fileType};base64,${fileContent}`} type={fileType} />
               Your browser does not support the video tag.
             </video>
+          )}
+          {fileType === 'application/pdf' && (
+            <iframe
+              src={`data:${fileType};base64,${fileContent}`}
+              width="100%"
+              height="200px"
+              style={{ border: 'none', marginBottom: '1rem' }}
+            >
+              This browser does not support PDFs. Please download the PDF to view it.
+            </iframe>
+          )}
+          {['application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'].includes(fileType) && (
+            <Button startEnhancer={() => <GetAppIcon />} className="attachment-button">
+              <a href={`data:${fileType};base64,${fileContent}`} download={fileName}>
+                Download {fileName}
+              </a>
+            </Button>
           )}
           <Button startEnhancer={() => <GetAppIcon />} className="attachment-button">
             <a href={`data:${fileType};base64,${fileContent}`} 
@@ -201,3 +225,4 @@ function InboxComponent() {
 }
 
 export default InboxComponent;
+

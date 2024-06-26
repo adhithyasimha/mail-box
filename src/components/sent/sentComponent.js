@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useState } from 'react';
 import { Table } from 'baseui/table-semantic';
 import { Block } from 'baseui/block';
@@ -81,7 +83,7 @@ const SentSection = () => {
           <iframe
             src={`data:${fileType};base64,${fileContent}`}
             width="100%"
-            height="500px"
+            height="200px"
             style={{ border: 'none', marginBottom: '1rem' }}
           >
             This browser does not support PDFs. Please download the PDF to view it.
@@ -195,3 +197,5 @@ const SentSection = () => {
 }
 
 export default SentSection;
+
+

@@ -1,3 +1,5 @@
+
+
 a {
     color: var(--white-800);
     text-decoration: none;
@@ -7,20 +9,6 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    margin-top: 1rem;
-}
-
-.attSec img,
-.attSec video,
-.attSec audio,
-.attSec iframe {
-    max-width: 100%;
-    margin-bottom: 1rem;
-}
-
-.attSec .Button {
-    margin-top: 1rem;
 }
 
 .sentContainer {
@@ -33,48 +21,15 @@ a {
 
 .page {
     align-self: center;
-    margin-top: 1rem;
 }
 
 .subject {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     margin: 1rem 0;
 }
 
 .subject h2 {
-    margin: 0;
-    flex-grow: 1;
+    margin: 0 2rem 0 0;
 }
 
-.mail-container {
-    padding: 1rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.from-to {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.in-from-to {
-    margin-left: 1rem;
-    flex-grow: 1;
-}
-
-.time {
-    text-align: right;
-}
-
-.message {
-    margin-top: 1rem;
-}
-
-.attachments {
-    margin-top: 1rem;
-    border-top: 1px solid var(--border-color);
-    padding-top: 1rem;
-}
