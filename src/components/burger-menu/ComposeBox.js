@@ -43,9 +43,9 @@ const ComposeBox = ({ onClose }) => {
   }, []);
 
   const handleSubmit = async () => {
-    const from = 'adhithya@adhithya.tech';
+    const from = 'adhithya@adhithya.tech'//replace it with your desired email;
     try {
-      const response = await fetch('https://mailbox-server-rho.vercel.app/api/send-email', {
+      const response = await fetch('', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -119,7 +119,7 @@ const ComposeBox = ({ onClose }) => {
 
   const handlePromptSubmit = async () => {
     try {
-      const response = await fetch('https://mailbox-server-rho.vercel.app/api/ai', {
+      const response = await fetch('http:localhost:3001', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

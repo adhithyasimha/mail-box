@@ -60,7 +60,8 @@ app.post('/api/send-email', async (req, res) => {
       .from('sentMails')
       .insert([{ 
         to_email: to, 
-        from_email: 'adhithya@adhithya.tech', 
+        from_email: 'adhithya@adhithya.tech'//replace it with your desired email
+        , 
         subject, 
         message: text, 
         file_name: fileName || null, 

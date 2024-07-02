@@ -12,8 +12,8 @@ function Auth({ onAuthSuccess }) {
   const [error, setError] = useState('');
 
   
-  const supabaseUrl = 'https://djkrtmwwfohyonafoumv.supabase.co';
-  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqa3J0bXd3Zm9oeW9uYWZvdW12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTg1MTY5MjYsImV4cCI6MjAzNDA5MjkyNn0.coE-6KquwZi_KQlc893niek7iuSV-B7U46oNVGt3cp8';
+  const supabaseUrl = 'supaurl';
+  const supabaseKey = 'supakey';
 
 
   const supabase = createClient(supabaseUrl, supabaseKey);
