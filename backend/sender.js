@@ -8,20 +8,20 @@ const { createClient } = require('@supabase/supabase-js');
 const app = express();
 app.use(bodyParser.json({ limit: '50mb' }));
 
-// CORS middleware
-app.use(cors({ origin: 'http://localhost:3000' }));
+// CORS i.e cross origin resource sharing 
+app.use(cors({ origin: 'http://localhost:3000' }));//change it when deplyoing in vercel
 
 // CORS headers to every response
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');//change it when deplyoing in vercel
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
 
-// Supabase setup
-const supabaseUrl = 'https://djkrtmwwfohyonafoumv.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqa3J0bXd3Zm9oeW9uYWZvdW12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTg1MTY5MjYsImV4cCI6MjAzNDA5MjkyNn0.coE-6KquwZi_KQlc893niek7iuSV-B7U46oNVGt3cp8';
+// Supabase 
+const supabaseUrl = 'supabase-url';
+const supabaseKey = 'supabasekey';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Email sending setup
@@ -31,7 +31,7 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     user: 'resend',
-    pass: 're_RZfMjL6H_Q8KERcE4yYcPMhLzb5fCHt2c', // Replace with your actual password
+    pass: 'resend-key', // add your resend key get it from resend.com
   },
 });
 
@@ -39,7 +39,8 @@ app.post('/api/send-email', async (req, res) => {
   const { to, subject, text, fileName, fileContent } = req.body;
 
   const message = {
-    from: 'adhithya@adhithya.tech',
+    from: 'adhithya@adhithya.tech'//replace it with your desired email
+    ,
     to,
     subject,
     text,
@@ -102,7 +103,7 @@ app.get('/api/supabase-sent', async (req, res) => {
 
 
 // ai generative feature
-const apiKey = 'AIzaSyAThnU4c163VEY5yv6RtKZHnEaBMYdPTug';
+const apiKey = 'gemini-api-key';
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({
