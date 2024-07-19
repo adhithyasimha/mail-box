@@ -30,12 +30,14 @@ MailBox is a feature-rich email client built with React and Node.js, offering re
    - cd mailbox
    - cd frontend && npm install
    - cd ../backend && npm install
-   ```
+   
 
 2. Set up `.env` files in `frontend/` and `backend/` with necessary credentials.
 
 3. Start development servers:
-   ```
+npm start
+```
+   
 
 ## API Endpoints
 
