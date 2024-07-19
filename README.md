@@ -26,7 +26,7 @@ MailBox is a feature-rich email client built with React and Node.js, offering re
 
 1. Clone and install dependencies:
    ```
-   git clone https://github.com/yourusername/mailbox.git
+   git clone https://github.com/adhithyasimha/mail-box.git
    cd mailbox
    cd frontend && npm install
    cd ../backend && npm install
