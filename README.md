@@ -1,4 +1,4 @@
-Certainly! Here's the full updated README with the changes incorporated:
+
 
 ```markdown
 # MailBox - Modern Email Client
@@ -171,5 +171,3 @@ Contributions are welcome via Pull Requests.
 
 [MIT License](LICENSE)
 ```
-
-This updated README now includes more detailed code snippets for the key components, especially the search functionality in the Navbar component. It provides a comprehensive overview of the project's features, setup instructions, and core functionalities, making it easier for developers to understand and potentially contribute to the project.
