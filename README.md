@@ -61,7 +61,4 @@ MailBox is a feature-rich email client built with React and Node.js, offering re
 
 Contributions are welcome via Pull Requests.
 
-## License
 
-[MIT License](LICENSE)
-```
