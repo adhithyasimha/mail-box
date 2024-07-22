@@ -1,4 +1,4 @@
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/6h5FVmjph7M/0.jpg)](https://youtu.be/6h5FVmjph7M)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/6h5FVmjph7M/1.jpg)](https://youtu.be/6h5FVmjph7M)
 
 ```markdown
 # MailBox - Modern Email Client
