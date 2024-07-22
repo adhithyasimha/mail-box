@@ -1,7 +1,7 @@
 ```demo```
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/6h5FVmjph7M/1.jpg)](https://youtu.be/6h5FVmjph7M)
 
-<iframe width="1238" height="679" src="https://www.youtube.com/embed/6h5FVmjph7M" title="Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 ```markdown
 # MailBox - Modern Email Client
